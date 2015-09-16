@@ -1,0 +1,87 @@
+<%= form_for(@request) do |f| %>
+    <% if @request.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</h2>
+
+          <ul>
+            <% @request.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label 'Preferred Background Color' %><br>
+      <%= f.text_field :background_color, required: true %>
+    </div>
+    <div class="field">
+      <%= f.label 'Product Terms and Conditions' %><br>
+      <%= f.text_area :terms, required: true %>
+    </div>
+    <div class="field">
+      <%= f.label 'City/State Where Offer can be Redeemed' %><br>
+      <%= f.text_area :city_or_state, required: true %>
+    </div>
+    <div class="field">
+      <%= f.label 'Physical Address & Phone' %><br>
+      <%= f.text_area :physical_address, required: true %>
+    </div>
+    <div class="field">
+      <%= f.label 'Company Overview and History' %><br>
+      <%= f.text_area :company_overview, required: true %>
+    </div>
+    <div class="field">
+      <%= f.label 'Product Feature and Benefits ' %><br>
+      <%= f.text_area :product_feature, required: true %>
+    </div>
+    <div class="field">
+      <%= f.label 'Card/Certificate/Ticket Type' %><br>
+      <%= f.select :card_type, [['Plastic Card'], ['Certificate'], ['Ticket/Voucher']], required: true %>
+    </div>
+    <div class="field">
+      <%= f.label 'Balance Inquiry Method' %><br>
+      <%= f.text_area :balance_enquire_method, required: true %>
+    </div>
+
+
+    <h3> Product Image Upload </h3>
+    <hr/>
+    A product image is required. The image area to fill is 10”w x ~5”h (including bleed) and minimum resolution of 300dpi at that size. Do not provide images that include text or other graphic elements unless it has been specifically designed to the image area dimensions.
+
+    <div class="field">
+      <%= f.label 'Product Image' %><br>
+      <%= f.file_field :product_image, required: true %>
+    </div>
+
+    <h3> Logo Upload </h3>
+    <hr/>
+    A high resolution logo is required   A vector format is strongly preferred so we can scale your logo without loss of image quality (AI, EPS, PDF). If raster, the minimum resolution is 300dpi at final size (~16-20”h for the skirts).
+
+    <div class="field">
+      <%= f.label 'Partner Logo' %><br>
+      <%= f.file_field :partner_logo, required: true %>
+    </div>
+
+    <h3> Card/Certificate/Ticket Image Upload </h3>
+    <hr/>
+    Scan or take a photo of the front and back of your gift card, certificate or ticket/voucher. You may upload two separate files if needed.
+    If you are submitting the front and back separately, Please name your files the following:
+    Front of product: PartnerName_Front.file format
+    Back of Product: PartnerName_Back.file format
+    For example: My restaurant is Sweet Pea Cafe and my sample image files are jpegs.
+    Sweet_Pea_Cafe_Front.jpg
+    Sweet_Pea_Cafe_Back.jpg
+    Please note - This is not in lieu of the hi-resolution product image shot needed for the pallet assets. See the Marketing Asset Guidelines for image requirements.
+
+    <div class="field">
+      <%= f.label 'Gift Card Image' %><br>
+      <%= f.file_field :gift_card_image, required: true %>
+    </div>
+
+    <br/>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
