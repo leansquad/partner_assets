@@ -1,0 +1,45 @@
+development:
+  quickbase:
+    username: quickbase@leansquad.com
+    password: lsqb2015!
+    org: incomm-5923
+    apptoken: fz95s79adpvhcv5b26idhqqwk2
+    referrences:
+      offer_assets:
+        db: bjwsggmg5
+        fields:
+          background_color: 8
+          terms: 9
+          city_or_state: 10
+          physical_address: 11
+          company_overview: 12
+          product_feature: 13
+          card_type: 14
+          balance_enquire_method: 15
+          submit: 23
+          product_image: 6
+          partner_logo: 7
+          gift_card_image: 21
+
+production:
+  quickbase:
+    username: quickbase@leansquad.com
+    password: lsqb2015!
+    org: incomm-5923
+    apptoken: fz95s79adpvhcv5b26idhqqwk2
+    referrences:
+      offer_assets:
+        db: bjwsggmg5
+        fields:
+          background_color: 8
+          terms: 9
+          city_or_state: 10
+          physical_address: 11
+          company_overview: 12
+          product_feature: 13
+          card_type: 14
+          balance_enquire_method: 15
+          submit: 23
+          product_image: 6
+          partner_logo: 7
+          gift_card_image: 21

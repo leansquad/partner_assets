@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Paa</title>
+    <link rel="stylesheet" media="all"
+          href="/assets/requests.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1"/>
+    <link rel="stylesheet" media="all"
+          href="/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.1/jquery.qtip.js"></script>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.1/jquery.qtip.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1"></script>
+    <script src="/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1"></script>
+    <script src="/assets/requests.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1"></script>
+    <script src="/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1"></script>
+    <meta name="csrf-param" content="authenticity_token"/>
+    <meta name="csrf-token"
+          content="v8yl2PtxvYEBKDS+RKnxi6EjNyDy+ZuAkZkf0/ByU+pI9bSUnhWjxrpGEhwyyHcczzMmM/adw/iUyNpA6JLd7A=="/>
+</head>
+<body>
+
+
+<main class="wrapper">
+    <div class="logo"><img src="images/incomm_logo.jpeg" alt=""></div>
+    <div id="accordion">
+        <h1 class="active"> Marketing Questionnaire - Sam's Club</h1>
+
+        <div class="section">
+            <div class="stextcell">
+                Congratulations on being selected to participate in the Sam's Club Extreme Value Program! This is an
+                exciting opportunity to showcase your inventory in Sam's Club and SamsClub.com.
+                The input on this form is necessary to create the artwork that will be printed on the pullcards and
+                pallets that will be on display. Please be accurate with the information as we cannot be responsible for
+                the actual verbiage or terms and conditions of your product. Also below you will be able to upload
+                images and files needed for creating the artwork. You can find more information on the Asset Guidelines
+                or if you have questions please contact your Account Manager with InComm.
+                <br/>
+
+                <div class="info-b">
+                    <b> * - Required Fields </b><br/>
+                    <b> i - More Information </b>
+                </div>
+            </div>
+            <br/>
+        </div>
+        <div class="section">
+            <form class="new_request" id="new_request" enctype="multipart/form-data" action="/requests"
+                  accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;"/><input
+                    type="hidden" name="authenticity_token"
+                    value="+zaJLGYMEVKbdYYLdIA/QZCviz1AJ2WY1GIr6ZyXD/sMD5hgA2gPFSAboKkC4bnW/r+aLkRDPeDRM+56hHeB/Q=="/>
+
+                <div class="field field-form first">
+                    <div class="label-overlay">
+                        <label for="request_Preferred Background Color">
+                            <div class="tooltip right"
+                                 title="We will draw inspiration from your logo and website if a color is not indicated."></div>
+                            Preferred background<br>Color<span class="rqrd">*</span></label>
+                    </div>
+                    <input required="required" size="40" type="text" name="request[background_color]"
+                           id="request_background_color"/>
+                </div>
+                <div class="field field-form">
+                    <div class="label-overlay">
+                        <label for="request_Product Terms and Conditions">
+                            <div class="tooltip right"
+                                 title="Please include the exact terms and conditions found on the back of your gift card, certificate or ticket/voucher."></div>
+                            Product terms and<br>Conditions<span class="rqrd">*</span></label>
+                    </div>
+                <textarea cols="60" rows="6" required="required" name="request[terms]" id="request_terms">
+                </textarea>
+                </div>
+                <div class="field field-form">
+                    <div class="label-overlay">
+                        <label for="request_City/State Where Offer can be Redeemed">
+                            <!--<div class="tooltip right" title="We will draw inspiration from your logo and website if a color is not indicated."></div>-->
+                            City/state where offer<br> can be redeemed<span class="rqrd">*</span></label>
+                    </div>
+                <textarea cols="60" rows="6" required="required" name="request[city_or_state]"
+                          id="request_city_or_state">
+                </textarea>
+                </div>
+                <div class="field field-form">
+                    <div class="label-overlay">
+                        <label for="request_Physical Address &amp; Phone">
+                            <div class="tooltip right" title="Limit of 3 or fewer locations."></div>
+                            Physical address &amp; <br>Phone<span class="rqrd">*</span></label>
+                    </div>
+                <textarea cols="60" rows="6" required="required" name="request[physical_address]"
+                          id="request_physical_address">
+                </textarea>
+                </div>
+                <div class="field field-form">
+                    <div class="label-overlay">
+                        <label for="request_Company Overview and History">
+                            <!--<div class="tooltip right" title="We will draw inspiration from your logo and website if a color is not indicated."></div>-->
+                            Company overview and<br> History<span class="rqrd">*</span></label>
+                    </div>
+                <textarea cols="60" rows="6" required="required" name="request[company_overview]"
+                          id="request_company_overview">
+                </textarea>
+                </div>
+                <div class="field field-form">
+                    <div class="label-overlay">
+                        <label for="request_Product Feature and Benefits ">
+                            <div class="tooltip right"
+                                 title="A special feature or benefit of your company. For example; Voted best pasta primavera 3 years running."></div>
+                            Product feature and<br> Benefits <span class="rqrd">*</span></label>
+                    </div>
+            <textarea cols="60" rows="6" required="required" name="request[product_feature]"
+                      id="request_product_feature">
+            </textarea>
+                </div>
+                <div class="field field-form">
+                    <div class="label-overlay">
+                        <label for="request_Card/Certificate/Ticket Type">
+                            <!--<div class="tooltip right" title="We will draw inspiration from your logo and website if a color is not indicated."></div>-->
+                            Card/certificate/ticket<br> Type<span class="rqrd">*</span></label>
+                    </div>
+                    <select name="request[card_type]" id="request_card_type">
+                        <option value="Plastic Card">Plastic Card</option>
+                        <option value="Certificate">Certificate</option>
+                        <option value="Ticket/Voucher">Ticket/Voucher</option>
+                    </select>
+                </div>
+                <div class="field field-form last">
+                    <div class="label-overlay">
+                        <label for="request_Balance Inquiry Method">
+                            <div class="tooltip right"
+                                 title="Please include specific information such as an 800 number, web site address or company phone number. If providing a company phone number, please provide the hours of operation."></div>
+                            Balance inquiry<br> Method<span class="rqrd">*</span></label><br>
+                    </div>
+                        <textarea cols="60" rows="6" required="required" name="request[balance_enquire_method]"
+                                  id="request_balance_enquire_method">
+                        </textarea>
+                </div>
+        </div>
+        <h3 class="active product-image"> Product Image Upload</h3>
+
+        <div class="section product_image_upload">
+            <div class="stextcell">
+                A product image is required. The image area to fill is 10”w x ~5”h (including bleed) and minimum
+                resolution of 300dpi at that size. Do not provide images that include text or other graphic elements
+                unless it has been specifically designed to the image area dimensions.
+                <div class="field">
+                    <label for="request_Product Image">Product image</label><br>
+                    <input required="required" type="file" name="request[product_image]" id="request_product_image"/>
+                </div>
+            </div>
+        </div>
+        <h3 class="active"> Logo Upload </h3>
+
+        <div class="section logo_upload">
+            <div id="tdf_2" class="stextcell">
+                A high resolution logo is required A vector format is strongly preferred so we can scale your logo
+                without loss of image quality (AI, EPS, PDF). If raster, the minimum resolution is 300dpi at final size
+                (~16-20”h for the skirts).
+                <div class="field">
+                    <label for="request_Partner Logo">Partner logo</label><br>
+                    <input required="required" type="file" name="request[partner_logo]" id="request_partner_logo"/>
+                </div>
+            </div>
+        </div>
+        <h3 class="active"> Card/Certificate/Ticket Image Upload</h3>
+
+        <div class="section card_certificate">
+            <div class="stextcell">
+                Scan or take a photo of the front and back of your gift card, certificate or ticket/voucher. You may
+                upload two separate files if needed.
+                If you are submitting the front and back separately, Please name your files the following:
+                Front of product: PartnerName_Front.file format
+                Back of Product: PartnerName_Back.file format
+                For example: My restaurant is Sweet Pea Cafe and my sample image files are jpegs.
+                Sweet_Pea_Cafe_Front.jpg
+                Sweet_Pea_Cafe_Back.jpg
+                Please note - This is not in lieu of the hi-resolution product image shot needed for the pallet assets.
+                See the Marketing Asset Guidelines for image requirements.
+                <div class="field">
+                    <label for="request_Gift Card Image">Gift card image</label><br>
+                    <input required="required" type="file" name="request[gift_card_image]"
+                           id="request_gift_card_image"/>
+                </div>
+
+                <br/>
+
+                <div class="actions">
+                    <input type="submit" name="commit" value="Create Request"/>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+
+</body>
+</html>

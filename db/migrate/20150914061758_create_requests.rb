@@ -1,6 +1,7 @@
 class CreateRequests < ActiveRecord::Migration
   def change
     create_table :requests do |t|
+      t.integer :oid
       t.integer :quickbase_id
 
       t.string :background_color, null: false

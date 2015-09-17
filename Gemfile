@@ -35,10 +35,14 @@ gem 'unicorn'
 gem 'quickbase'
 gem 'delayed_job'
 gem 'paperclip'
+gem 'settingslogic'
 
 group :development do
   gem 'capistrano-rails', group: :development
   gem 'annotate'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'foreman'
 end
 
 group :development, :test do

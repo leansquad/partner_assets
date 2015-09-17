@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20150914062551) do
   enable_extension "dblink"
 
   create_table "requests", force: :cascade do |t|
+    t.integer  "oid"
     t.integer  "quickbase_id"
     t.string   "background_color",             null: false
     t.text     "terms",                        null: false
@@ -42,5 +43,7 @@ ActiveRecord::Schema.define(version: 20150914062551) do
     t.integer  "gift_card_image_file_size"
     t.datetime "gift_card_image_updated_at"
   end
+
+  add_index "requests", ["quickbase_id"], name: "index_requests_on_quickbase_id", using: :btree
 
 end

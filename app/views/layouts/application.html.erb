@@ -7,8 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<main class="wrapper">
+  <div class="logo">
+    <%= image_tag('incomm_logo.jpeg')%>
+  </div>
 
-<%= yield %>
+  <%= yield %>
+</main>
 
+<%= debug(params.inspect) if Rails.env.development? %>
 </body>
 </html>

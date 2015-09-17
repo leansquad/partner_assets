@@ -40,6 +40,12 @@ GEM
       activerecord (>= 3.2, <= 4.3)
       rake (~> 10.4)
     arel (6.0.3)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     builder (3.2.2)
     capistrano (3.4.0)
       i18n
@@ -64,10 +70,13 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     colorize (0.7.7)
+    debug_inspector (0.0.2)
     delayed_job (4.0.6)
       activesupport (>= 3.0, < 5.0)
     erubis (2.7.0)
     execjs (2.6.0)
+    foreman (0.78.0)
+      thor (~> 0.19.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     httparty (0.13.5)
@@ -146,6 +155,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    settingslogic (2.0.9)
     slop (3.6.0)
     sprockets (3.3.4)
       rack (~> 1.0)
@@ -175,9 +185,12 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  better_errors
+  binding_of_caller
   capistrano-rails
   coffee-rails (~> 4.1.0)
   delayed_job
+  foreman
   jquery-rails
   paperclip
   pg
@@ -185,6 +198,7 @@ DEPENDENCIES
   quickbase
   rails (= 4.2.4)
   sass-rails (~> 5.0)
+  settingslogic
   uglifier (>= 1.3.0)
   unicorn
 
