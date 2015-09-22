@@ -57,3 +57,7 @@ group :development, :test do
   #gem 'spring'
 end
 
+group :deploy do
+  gem 'capistrano', '< 3.0.0'
+  gem 'capistrano-ext'
+end

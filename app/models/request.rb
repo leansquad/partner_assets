@@ -76,8 +76,20 @@ class Request < ActiveRecord::Base
     }
 
     # begin
-    quickbase.api.add_record(args)
-    # quickbase.api.upload_file(21, fields['product_image'].to_s, File.open(a.product_image.path, 'rb').read, a.product_image_file_name )
+    quickbase_asset_id = quickbase.api.add_record_returning_rid(args)
+
+    return unless quickbase_asset_id.present?
+
+    update_attribute(:quickbase_id, quickbase_asset_id)
+
+    [:product_image, :partner_logo, :gift_card_image].each do |image|
+      next unless self.send(image).present?
+
+      quickbase.api.upload_file(
+          quickbase_asset_id, fields[image.to_s].to_s,
+          File.open(self.send(image).path, 'rb').read, self.send("#{image}_file_name")
+      )
+    end
     # rescue RuntimeError
 
     # end

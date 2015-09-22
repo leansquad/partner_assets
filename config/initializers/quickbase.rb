@@ -67,10 +67,23 @@ module Quickbase
             'name="'+field_name.to_s+'" filename="'+ file_name+'"'
           end
 
-      fields = ["<field #{field_name}>#{Base64.encode64(content)}</field>"]
+      fields = ["<field #{field_name}>#{Base64.strict_encode64(content)}</field>"]
       fields << Quickbase::Helper.hash_to_xml({rid: rid.to_s})
 
-      connection.http.post("API_EditRecord", fields)
+      connection.http.post('API_EditRecord', fields)
+    end
+
+    # Documentation at http://www.quickbase.com/api-guide/add_record.html
+    def add_record_returning_rid(fields)
+      response = add_record(fields)
+      response = response.xpath("//objects[@type='array']/object/qdbapi")
+
+      return nil unless response
+      code = (response.xpath("//errcode")[0].children[0].text.to_i rescue 200)
+
+      return nil unless code.zero?
+
+      response.xpath("//rid")[0].children[0].text.to_i
     end
   end
 end
