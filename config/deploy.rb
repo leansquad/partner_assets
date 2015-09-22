@@ -1,7 +1,7 @@
 require 'capistrano/ext/multistage'
 # require 'sidekiq/capistrano'
 # require 'capistrano/sidekiq'
-# require 'rvm/capistrano'
+require 'rvm/capistrano'
 require 'bundler/capistrano'
 
 require File.expand_path('../../lib/capistrano/recipes/database_yml.rb', __FILE__)
@@ -31,7 +31,7 @@ ssh_options[:keys] = %w('~/.ssh/pem/scost.pem') # changed in order to fix an iss
 ssh_options[:forward_agent] = true
 
 # Every task will be run with this ruby
-set :rvm_ruby_string, '2.0.0-p247@scost'
+set :rvm_ruby_string, '2.2.2@paa'
 
 set :normalize_asset_timestamps, false
 
@@ -48,8 +48,8 @@ set :branch do
   tag_or_branch
 end unless fetch(:branch, false)
 
-# before 'deploy:setup', 'rvm:install_rvm'
-# before 'deploy:setup', 'rvm:install_ruby'
+before 'deploy:setup', 'rvm:install_rvm'
+before 'deploy:setup', 'rvm:install_ruby'
 
 namespace :deploy do
   namespace :db do

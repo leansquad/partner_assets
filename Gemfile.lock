@@ -152,6 +152,8 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.15.0)
     rake (10.4.2)
+    rvm-capistrano (1.5.6)
+      capistrano (~> 2.15.4)
     sass (3.4.18)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -199,6 +201,7 @@ DEPENDENCIES
   pry
   quickbase
   rails (= 4.2.4)
+  rvm-capistrano
   sass-rails (~> 5.0)
   settingslogic
   uglifier (>= 1.3.0)
