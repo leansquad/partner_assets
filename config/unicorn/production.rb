@@ -1,6 +1,6 @@
-app_dir_name = "paa_production"
-rails_root = "/var/data/www/apps/#{app_dir_name}/current"
 rails_env = "production"
+app_dir_name = "paa_#{rails_env}"
+rails_root = "/var/data/www/apps/#{app_dir_name}/current"
 pid_file = "/var/data/www/apps/#{app_dir_name}/shared/tmp/pids/unicorn.pid"
 socket_file= "/var/data/www/apps/#{app_dir_name}/shared/tmp/sockets/unicorn.sock"
 log_file = "#{rails_root}/log/unicorn.log"
@@ -8,7 +8,7 @@ username = "deployer"
 group = "deployer"
 old_pid = pid_file + '.oldbin'
 timeout 60
-worker_processes 3
+worker_processes 10
 
 # Listen on a Unix data socket
 listen socket_file, backlog: 1024
@@ -24,8 +24,7 @@ GC.copy_on_write_friendly = true if GC.respond_to?(:copy_on_write_friendly=)
 before_fork do |server, worker|
   # the following is highly recomended for Rails + "preload_app true"
   # as there's no need for the master process to hold a connection
-  defined?(ActiveRecord::Base) and
-      ActiveRecord::Base.connection.disconnect!
+  defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
   ##
   # When sent a USR2, Unicorn will suffix its pidfile with .oldbin and
   # immediately start loading up a new version of itself (loaded with a new
@@ -48,8 +47,7 @@ end
 
 
 after_fork do |server, worker|
-  defined?(ActiveRecord::Base) and
-      ActiveRecord::Base.establish_connection
+  defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
   worker.user(username, group) if Process.euid == 0 && rails_env == 'production'
 end
 
