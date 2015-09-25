@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery-1.10.2.min
+//= require jquery.qtip
 //= require_tree .
 
 
@@ -35,6 +36,7 @@ $( document ).ready(function() {
         $(this).next('.section').slideToggle(500);
         e.preventDefault();
     });
+
     $('[title]').qtip({
         style: {
             classes: 'tooltip-form',
