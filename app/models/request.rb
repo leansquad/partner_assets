@@ -73,6 +73,7 @@ class Request < ActiveRecord::Base
         fields['product_feature'].to_s => product_feature,
         fields['card_type'].to_s => card_type,
         fields['balance_enquire_method'].to_s => balance_enquire_method,
+        fields['oid'].to_s => oid,
         # fields['product_image'].to_s => File.open(product_image.path).read,
     }
 
