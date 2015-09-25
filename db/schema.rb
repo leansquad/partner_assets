@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150914062551) do
+ActiveRecord::Schema.define(version: 20150925143652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "dblink"
 
   create_table "requests", force: :cascade do |t|
-    t.integer  "oid"
+    t.integer  "offer_id"
     t.integer  "quickbase_id"
     t.string   "background_color",             null: false
     t.text     "terms",                        null: false

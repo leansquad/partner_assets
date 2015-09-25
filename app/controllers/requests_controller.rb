@@ -7,7 +7,7 @@ class RequestsController < ApplicationController
 
   # GET /requests/new
   def new
-    @request = Request.new(oid: params[:oid])
+    @request = Request.new(reid: params[:reid])
   end
 
   # POST /requests
@@ -26,7 +26,7 @@ class RequestsController < ApplicationController
   # Only allow a trusted parameter "white list" through.
   def request_params
     params.require(:request).permit(
-        :oid, :background_color, :terms, :city_or_state, :physical_address, :company_overview, :product_feature,
-        :card_type, :balance_enquire_method, :product_image, :partner_logo, :gift_card_image, :oid)
+        :background_color, :terms, :city_or_state, :physical_address, :company_overview, :product_feature,
+        :card_type, :balance_enquire_method, :product_image, :partner_logo, :gift_card_image, :offer_id)
   end
 end
