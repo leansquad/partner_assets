@@ -25,7 +25,7 @@ body {
 
 .wrapper hr {
     color: #427CD8;
-    background-image: asset-url("images/section_divider_bold.png");
+    background-image: url("images/section_divider_bold.png");
     background-repeat: repeat-x;
     margin-top: 0;
     height: 1px;
@@ -40,7 +40,7 @@ body {
     padding-top: 5px;
     padding-left: 30px;
     padding-bottom: 2px;
-    background-image: asset-url("images/icons/caret_form_closed.png");
+    background-image: url("images/icons/caret_form_closed.png");
     background-position: 5px 5px;
     background-repeat: no-repeat;
     border-bottom: 1px solid rgba(128, 128, 128, 0.3)
@@ -51,7 +51,7 @@ body {
     padding-top: 5px;
     padding-left: 30px;
     padding-bottom: 2px;
-    background-image: asset-url("images/icons/caret_form_open.png");
+    background-image: url("images/icons/caret_form_open.png");
     background-position: 5px 5px;
     background-repeat: no-repeat
 }
@@ -60,7 +60,7 @@ body {
     padding-top: 5px;
     padding-left: 30px;
     padding-bottom: 2px;
-    background-image: asset-url("images/icons/caret_form_closed.png");
+    background-image: url("images/icons/caret_form_closed.png");
     background-position: 0.5% 99.5%;
     background-repeat: no-repeat
 }
@@ -69,7 +69,7 @@ body {
     padding-top: 5px;
     padding-left: 30px;
     padding-bottom: 2px;
-    background-image: asset-url("images/icons/caret_form_open.png");
+    background-image: url("images/icons/caret_form_open.png");
     background-position: 0.5% 99.5%;
     background-repeat: no-repeat
 }
@@ -121,7 +121,7 @@ body {
     top: 5px;
     width: 16px;
     height: 16px;
-    background-image: asset-url("images/icons/info_icon.png");
+    background-image: url("images/icons/info_icon.png");
     background-repeat: no-repeat;
     display: inline-block
 }
