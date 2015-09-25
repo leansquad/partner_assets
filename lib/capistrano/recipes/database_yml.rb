@@ -32,7 +32,7 @@ qa:
   adapter: postgresql                                                                                                                                        
   host: localhost                                                                                                                                            
   port: 5432                                                                                                                                                 
-  database: paa_qa
+  database: paa_production
   username: deployer                                                                                                                                         
   password: ployer                                                                                                                                           
   pool: 50
