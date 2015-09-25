@@ -19,7 +19,7 @@ development:
           product_image: 21
           partner_logo: 17
           gift_card_image: 16
-          reid: 8
+          offer_id: 8
 
 production:
   quickbase:
@@ -42,7 +42,7 @@ production:
           product_image: 21
           partner_logo: 17
           gift_card_image: 16
-          reid: 8
+          offer_id: 8
 
 qa:
   quickbase:
@@ -65,4 +65,4 @@ qa:
           product_image: 21
           partner_logo: 17
           gift_card_image: 16
-          reid: 8
+          offer_id: 8

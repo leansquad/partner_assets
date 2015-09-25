@@ -7,7 +7,7 @@ class RequestsController < ApplicationController
 
   # GET /requests/new
   def new
-    @request = Request.new(reid: params[:reid])
+    @request = Request.new(offer_id: params[:reid])
   end
 
   # POST /requests
