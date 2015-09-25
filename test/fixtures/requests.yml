@@ -4,6 +4,7 @@
 # Table name: requests
 #
 #  id                           :integer          not null, primary key
+#  oid                          :integer
 #  quickbase_id                 :integer
 #  background_color             :string           not null
 #  terms                        :text             not null

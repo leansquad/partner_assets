@@ -6,20 +6,20 @@ development:
     apptoken: fz95s79adpvhcv5b26idhqqwk2
     referrences:
       offer_assets:
-        db: bjwsggmg5
+        db: bj9ghvm9w
         fields:
-          background_color: 8
-          terms: 9
-          city_or_state: 10
-          physical_address: 11
-          company_overview: 12
-          product_feature: 13
+          background_color: 19
+          terms: 22
+          city_or_state: 14
+          physical_address: 18
+          company_overview: 15
+          product_feature: 20
           card_type: 14
-          balance_enquire_method: 15
-          submit: 23
-          product_image: 6
-          partner_logo: 7
-          gift_card_image: 21
+          balance_enquire_method: 12
+          product_image: 21
+          partner_logo: 17
+          gift_card_image: 16
+          oid: 8
 
 production:
   quickbase:
@@ -29,20 +29,21 @@ production:
     apptoken: fz95s79adpvhcv5b26idhqqwk2
     referrences:
       offer_assets:
-        db: bjwsggmg5
+        db: bj9ghvm9w
         fields:
-          background_color: 8
-          terms: 9
-          city_or_state: 10
-          physical_address: 11
-          company_overview: 12
-          product_feature: 13
+          background_color: 19
+          terms: 22
+          city_or_state: 14
+          physical_address: 18
+          company_overview: 15
+          product_feature: 20
           card_type: 14
-          balance_enquire_method: 15
-          submit: 23
-          product_image: 6
-          partner_logo: 7
-          gift_card_image: 21
+          balance_enquire_method: 12
+          product_image: 21
+          partner_logo: 17
+          gift_card_image: 16
+          oid: 8
+
 qa:
   quickbase:
     username: quickbase@leansquad.com
@@ -51,17 +52,17 @@ qa:
     apptoken: fz95s79adpvhcv5b26idhqqwk2
     referrences:
       offer_assets:
-        db: bjwsggmg5
+        db: bj9ghvm9w
         fields:
-          background_color: 8
-          terms: 9
-          city_or_state: 10
-          physical_address: 11
-          company_overview: 12
-          product_feature: 13
+          background_color: 19
+          terms: 22
+          city_or_state: 14
+          physical_address: 18
+          company_overview: 15
+          product_feature: 20
           card_type: 14
-          balance_enquire_method: 15
-          submit: 23
-          product_image: 6
-          partner_logo: 7
-          gift_card_image: 21
+          balance_enquire_method: 12
+          product_image: 21
+          partner_logo: 17
+          gift_card_image: 16
+          oid: 8
