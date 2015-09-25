@@ -69,9 +69,9 @@ class Request < ActiveRecord::Base
         fields['city_or_state'].to_s => city_or_state,
         fields['physical_address'].to_s => physical_address,
         fields['company_overview'].to_s => company_overview,
-        fields['product_feature'].to_s => city_or_state,
+        fields['product_feature'].to_s => product_feature,
         fields['card_type'].to_s => card_type,
-        fields['balance_enquire_method'].to_s => company_overview,
+        fields['balance_enquire_method'].to_s => balance_enquire_method,
         # fields['product_image'].to_s => File.open(product_image.path).read,
     }
 
