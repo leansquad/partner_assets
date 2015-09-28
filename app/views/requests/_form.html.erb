@@ -5,23 +5,23 @@
       <div class="field field-form first">
         <div class="label-overlay">
           <label for="request_Preferred Background Color">
-            <div class="tooltip right" title="We will draw inspiration from your logo and website if a color is not indicated."></div>
             Preferred background<br>Color
             <span class="rqrd">*</span>
           </label>
         </div>
         <%= f.text_field :background_color, required: true %>
+        <div class="tooltip tooltip-textfield right" title="Preferred background Color - We will draw inspiration from your logo and website if a color is not specified. If you do not know a color, please input “No Specific Color”."></div>
       </div>
 
       <div class="field field-form">
         <div class="label-overlay">
           <label for="request_Product Terms and Conditions">
-            <div class="tooltip right" title="Please include the exact terms and conditions found on the back of your gift card, certificate or ticket/voucher."></div>
             Product terms and<br>Conditions
             <span class="rqrd">*</span>
           </label>
         </div>
         <%= f.text_area :terms, required: true %>
+        <div class="tooltip right" title="Please include the exact terms and conditions found on the back of your gift card, certificate or ticket/voucher."></div>
       </div>
 
       <div class="field field-form">
@@ -37,17 +37,17 @@
       <div class="field field-form">
         <div class="label-overlay">
           <label for="request_Physical Address &amp; Phone">
-            <div class="tooltip right" title="Limit of 3 or fewer locations."></div>
             Physical address &amp; <br>Phone
             <span class="rqrd">*</span>
           </label>
         </div>
         <%= f.text_area :physical_address, required: true %>
+        <div class="tooltip right" title="Limit of 3 or fewer locations."></div>
       </div>
 
       <div class="field field-form">
         <div class="label-overlay">
-          <label for="request_Company Overview and History"><!--<div class="tooltip right" title="We will draw inspiration from your logo and website if a color is not indicated."></div>-->
+          <label for="request_Company Overview and History">
             Company overview and<br> History
             <span class="rqrd">*</span>
           </label>
@@ -58,17 +58,17 @@
       <div class="field field-form">
         <div class="label-overlay">
           <label for="request_Product Feature and Benefits ">
-            <div class="tooltip right" title="A special feature or benefit of your company. For example; Voted best pasta primavera 3 years running."></div>
             Product feature and<br> Benefits
             <span class="rqrd">*</span>
           </label>
         </div>
         <%= f.text_area :product_feature, required: true %>
+        <div class="tooltip right" title="A special feature or benefit of your company. For example; Voted best pasta primavera 3 years running."></div>
       </div>
 
       <div class="field field-form">
         <div class="label-overlay">
-          <label for="request_Card/Certificate/Ticket Type"><!--<div class="tooltip right" title="We will draw inspiration from your logo and website if a color is not indicated."></div>-->
+          <label for="request_Card/Certificate/Ticket Type">
             Card/certificate/ticket<br> Type
             <span class="rqrd">*</span>
           </label>
@@ -79,24 +79,29 @@
       <div class="field field-form last">
         <div class="label-overlay">
           <label for="request_Balance Inquiry Method">
-            <div class="tooltip right" title="Please include specific information such as an 800 number, web site address or company phone number. If providing a company phone number, please provide the hours of operation."></div>
             Balance inquiry<br> Method
             <span class="rqrd">*</span>
           </label>
           <br>
         </div>
         <%= f.text_area :balance_enquire_method, required: true %>
+        <div class="tooltip right" title="Please include specific information such as an 800 number, web site address or company phone number. If providing a company phone number, please provide the hours of operation."></div>
       </div>
 
-      <h3 class="active product-image"> Product Image Upload</h3>
+      <h3 class="active product-image"> Lifestyle Image Upload </h3>
 
       <div class="section product_image_upload">
         <div class="stextcell">
-          A product image is required. The image area to fill is 10”w x ~5”h (including bleed) and minimum
-          resolution of 300dpi at that size. Do not provide images that include text or other graphic elements
-          unless it has been specifically designed to the image area dimensions.
+          Please upload a high quality lifestyle photo that represents your brand. This could be a signature menu item
+          or a photo previously used in marketing materials.
+          <br/>
+          <br/>
+
+          The image area to fill is 10”w x ~5”h (including bleed) and minimum resolution of 300dpi at that size. Do not
+          provide images that include text or other graphic elements unless it has been specifically designed to the
+          image area dimensions.
           <div class="field">
-            <label for="request_Product Image">Product image</label><br>
+            <!--<label for="request_Product Image">Product image</label><br>-->
             <%= f.file_field :product_image, required: true %>
           </div>
         </div>
@@ -110,7 +115,7 @@
           without loss of image quality (AI, EPS, PDF). If raster, the minimum resolution is 300dpi at final size
           (~16-20”h for the skirts).
           <div class="field">
-            <label for="request_Partner Logo">Partner logo</label><br>
+            <!--<label for="request_Partner Logo">Partner logo</label><br>-->
             <%= f.file_field :partner_logo, required: true %>
           </div>
         </div>
@@ -131,14 +136,14 @@
           Please note - This is not in lieu of the hi-resolution product image shot needed for the pallet assets.
           See the Marketing Asset Guidelines for image requirements.
           <div class="field">
-            <label for="request_Gift Card Image">Gift card image</label><br>
+            <!--<label for="request_Gift Card Image">Gift card image</label><br>-->
             <%= f.file_field :gift_card_image, required: true %>
           </div>
 
           <br/>
 
           <div class="actions">
-            <%= f.submit %>
+            <%= f.submit 'Submit this Form' %>
           </div>
         </div>
       </div>

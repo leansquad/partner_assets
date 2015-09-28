@@ -19,8 +19,8 @@ body {
 }
 
 .wrapper .logo img {
-    width: 160px;
-    height: auto
+    width: 200px;
+    height: auto;
 }
 
 .wrapper hr {
@@ -109,21 +109,26 @@ body {
     position: relative
 }
 
-.wrapper .field-form .label-overlay label {
+.wrapper .field-form label {
     width: 150px;
     word-wrap: break-word;
     line-height: 1.28em;
     font-weight: bold
 }
 
-.wrapper .field-form .label-overlay label div.tooltip {
-    position: relative;
-    top: 5px;
+.wrapper .field-form div.tooltip {
+    position: absolute;
+    /*top: 0px;*/
     width: 16px;
     height: 16px;
     background-image: url("<%= asset_path('icons/info_icon.png') %>");
     background-repeat: no-repeat;
-    display: inline-block
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.wrapper .field-form div.tooltip-textfield {
+    top: 15px;
 }
 
 .wrapper .field-form .label-overlay span.rqrd {
@@ -146,6 +151,47 @@ body {
     -webkit-box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.1);
     box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.1)
+}
+
+.wrapper .field-form input[type=text] {
+    width: 400px;
+    /*height: 65px;*/
+}
+
+.wrapper .actions input[type=submit] {
+    cursor: pointer; /*forces the cursor to change to a hand when the button is hovered*/
+    padding: 7px 15px; /*add some padding to the inside of the button*/
+    background: #35b128; /*the colour of the button*/
+    border: 1px solid #33842a; /*required or the default border for the browser will appear*/
+    /*give the button curved corners, alter the size as required*/
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    /*give the button a drop shadow*/
+    -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, .75);
+    -moz-box-shadow: 0 0 4px rgba(0, 0, 0, .75);
+    box-shadow: 0 0 4px rgba(0, 0, 0, .75);
+    /*style the text*/
+    color: #f3f3f3;
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+.wrapper .actions input[type=submit]:hover, .wrapper .actions input[type=submit]:focus {
+    background-color: #399630; /*make the background a little darker*/
+    /*reduce the drop shadow size to give a pushed button effect*/
+    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .75);
+    -moz-box-shadow: 0 0 1px rgba(0, 0, 0, .75);
+
+}
+
+.wrapper .field-form textarea {
+    width: 400px;
+    height: 65px;
+}
+
+.wrapper .field input[type=file] {
+    margin-top: 20px;
 }
 
 .wrapper .field-form.first {
