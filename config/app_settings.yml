@@ -14,7 +14,7 @@ development:
           physical_address: 18
           company_overview: 15
           product_feature: 20
-          card_type: 14
+          card_type: 23
           balance_enquire_method: 12
           product_image: 21
           partner_logo: 17
@@ -37,7 +37,7 @@ production:
           physical_address: 18
           company_overview: 15
           product_feature: 20
-          card_type: 14
+          card_type: 23
           balance_enquire_method: 12
           product_image: 21
           partner_logo: 17
@@ -60,7 +60,7 @@ qa:
           physical_address: 18
           company_overview: 15
           product_feature: 20
-          card_type: 14
+          card_type: 23
           balance_enquire_method: 12
           product_image: 21
           partner_logo: 17
