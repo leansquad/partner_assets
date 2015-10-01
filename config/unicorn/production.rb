@@ -8,7 +8,7 @@ username = "deployer"
 group = "deployer"
 old_pid = pid_file + '.oldbin'
 timeout 60
-worker_processes 10
+worker_processes 2
 
 # Listen on a Unix data socket
 listen socket_file, backlog: 1024
