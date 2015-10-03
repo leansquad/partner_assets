@@ -11,7 +11,7 @@ class CreateRequests < ActiveRecord::Migration
       t.text :physical_address, null: false
       t.text :company_overview, null: false
       t.text :product_feature, null: false
-      t.string :card_type, null: false
+      t.string :card_type
       t.string :balance_enquire_method, null: false
 
       t.timestamps null: false

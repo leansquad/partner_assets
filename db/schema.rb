@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20150925143652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "dblink"
 
   create_table "requests", force: :cascade do |t|
     t.integer  "offer_id"
@@ -26,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150925143652) do
     t.text     "physical_address",             null: false
     t.text     "company_overview",             null: false
     t.text     "product_feature",              null: false
-    t.string   "card_type",                    null: false
+    t.string   "card_type"
     t.string   "balance_enquire_method",       null: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
