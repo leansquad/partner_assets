@@ -82,7 +82,7 @@
             Card/certificate/ticket<br> Type
           </label>
         </div>
-        <%= f.select :card_type, [['Plastic Card'], ['Certificate'], ['Ticket/Voucher']] %>
+        <%= f.select :card_type, [['Plastic Card'], ['Certificate'], ['Ticket/Voucher']], required: true  %>
       </div>
 
       <div class="field field-form last">
@@ -149,7 +149,7 @@
           See the Marketing Asset Guidelines for image requirements.
           <div class="field">
             <!--<label for="request_Gift Card Image">Gift card image</label><br>-->
-            <%= f.file_field :gift_card_image, required: true %>
+            <%= f.file_field :gift_card_image%>
           </div>
 
           <br/>
