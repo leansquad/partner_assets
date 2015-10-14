@@ -121,7 +121,12 @@ body {
     /*top: 0px;*/
     width: 325px;
     height: 16px;
-    /*background-image: url("<%= asset_path('icons/info_icon.png') %>");*/
+    /*background-image: url("
+
+
+
+
+<%= asset_path('icons/info_icon.png') %>     ");*/
     /*background-repeat: no-repeat;*/
     display: inline-block;
     margin-left: 5px;
@@ -192,6 +197,7 @@ body {
 
 .wrapper .field input[type=file] {
     margin-top: 20px;
+    width: 165px;
 }
 
 .wrapper .field-form.first {
@@ -230,6 +236,33 @@ body {
 
 .tooltip-form .qtip-tip {
     background: #999
+}
+
+div.add-second-image-link {
+    margin-top: 21px;
+    cursor: pointer;
+}
+
+img.add-icon-image, img.remove-icon-image {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    position: relative;
+    top: 3px;
+}
+img.remove-icon-image {
+    width: 18px;
+    height: 18px;
+    top: 5px;
+}
+
+
+span.add-additional-image {
+    text-align: center;
+}
+
+div.second-image-form {
+    display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

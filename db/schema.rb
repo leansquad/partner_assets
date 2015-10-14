@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925143652) do
+ActiveRecord::Schema.define(version: 20151014051208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,16 +19,16 @@ ActiveRecord::Schema.define(version: 20150925143652) do
   create_table "requests", force: :cascade do |t|
     t.integer  "offer_id"
     t.integer  "quickbase_id"
-    t.string   "background_color",             null: false
-    t.text     "terms",                        null: false
-    t.text     "city_or_state",                null: false
-    t.text     "physical_address",             null: false
-    t.text     "company_overview",             null: false
-    t.text     "product_feature",              null: false
+    t.string   "background_color",              null: false
+    t.text     "terms",                         null: false
+    t.text     "city_or_state",                 null: false
+    t.text     "physical_address",              null: false
+    t.text     "company_overview",              null: false
+    t.text     "product_feature",               null: false
     t.string   "card_type"
-    t.string   "balance_enquire_method",       null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.string   "balance_enquire_method",        null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "product_image_file_name"
     t.string   "product_image_content_type"
     t.integer  "product_image_file_size"
@@ -41,6 +41,18 @@ ActiveRecord::Schema.define(version: 20150925143652) do
     t.string   "gift_card_image_content_type"
     t.integer  "gift_card_image_file_size"
     t.datetime "gift_card_image_updated_at"
+    t.string   "product_image2_file_name"
+    t.string   "product_image2_content_type"
+    t.integer  "product_image2_file_size"
+    t.datetime "product_image2_updated_at"
+    t.string   "partner_logo2_file_name"
+    t.string   "partner_logo2_content_type"
+    t.integer  "partner_logo2_file_size"
+    t.datetime "partner_logo2_updated_at"
+    t.string   "gift_card_image2_file_name"
+    t.string   "gift_card_image2_content_type"
+    t.integer  "gift_card_image2_file_size"
+    t.datetime "gift_card_image2_updated_at"
   end
 
   add_index "requests", ["quickbase_id"], name: "index_requests_on_quickbase_id", using: :btree

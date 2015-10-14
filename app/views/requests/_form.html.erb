@@ -82,7 +82,7 @@
             Card/certificate/ticket<br> Type
           </label>
         </div>
-        <%= f.select :card_type, [['Plastic Card'], ['Certificate'], ['Ticket/Voucher']], required: true  %>
+        <%= f.select :card_type, [['Plastic Card'], ['Certificate'], ['Ticket/Voucher']], required: true %>
       </div>
 
       <div class="field field-form last">
@@ -111,10 +111,22 @@
 
           The image area to fill is 10”w x ~5”h (including bleed) and minimum resolution of 300dpi at that size. Do not
           provide images that include text or other graphic elements unless it has been specifically designed to the
-          image area dimensions.
+          image area dimensions. You can upload up to two different files if needed.
           <div class="field">
-            <!--<label for="request_Product Image">Product image</label><br>-->
             <%= f.file_field :product_image, required: true %>
+          </div>
+
+          <div class="field add-second-image-link" id="product-image-add-second-link" data-div="product-image-add-second-image">
+            <%= image_tag 'add_icon.png', class: 'add-icon-image' %>
+            <span class="add-additional-image">
+              Add additional image
+            </span>
+          </div>
+
+          <div class="field second-image-form" id="product-image-add-second-image">
+            <%= f.file_field :product_image2, required: true %>
+            <%= image_tag 'remove_icon.png', class: 'remove-icon-image remove-second-image-link',
+                          data: {div: 'product-image-add-second-link', image: 'request_product_image2'} %>
           </div>
         </div>
       </div>
@@ -125,10 +137,22 @@
         <div id="tdf_2" class="stextcell">
           A high resolution logo is required A vector format is strongly preferred so we can scale your logo
           without loss of image quality (AI, EPS, PDF). If raster, the minimum resolution is 300dpi at final size
-          (~16-20”h for the skirts).
+          (~16-20”h for the skirts). You can upload up to two different files if needed.
           <div class="field">
-            <!--<label for="request_Partner Logo">Partner logo</label><br>-->
             <%= f.file_field :partner_logo, required: true %>
+          </div>
+
+          <div class="field add-second-image-link" id="partner-logo-add-second-link" data-div="partner-logo-add-second-image">
+            <%= image_tag 'add_icon.png', class: 'add-icon-image' %>
+            <span class="add-additional-image">
+              Add additional image
+            </span>
+          </div>
+
+          <div class="field second-image-form" id="partner-logo-add-second-image">
+            <%= f.file_field :partner_logo2, required: true %>
+            <%= image_tag 'remove_icon.png', class: 'remove-icon-image remove-second-image-link',
+                          data: {div: 'partner-logo-add-second-link', image: 'request_partner_logo2'} %>
           </div>
         </div>
       </div>
@@ -146,10 +170,22 @@
           Sweet_Pea_Cafe_Front.jpg
           Sweet_Pea_Cafe_Back.jpg
           Please note - This is not in lieu of the hi-resolution product image shot needed for the pallet assets.
-          See the Marketing Asset Guidelines for image requirements.
+          See the Marketing Asset Guidelines for image requirements. You can upload up to two different files if needed.
           <div class="field">
-            <!--<label for="request_Gift Card Image">Gift card image</label><br>-->
-            <%= f.file_field :gift_card_image%>
+            <%= f.file_field :gift_card_image %>
+          </div>
+
+          <div class="field add-second-image-link" id="gift-card-add-second-link" data-div="gift-card-add-second-image">
+            <%= image_tag 'add_icon.png', class: 'add-icon-image' %>
+            <span class="add-additional-image">
+              Add additional image
+            </span>
+          </div>
+
+          <div class="field second-image-form" id="gift-card-add-second-image">
+            <%= f.file_field :gift_card_image2, required: true %>
+            <%= image_tag 'remove_icon.png', class: 'remove-icon-image remove-second-image-link',
+                          data: {div: 'gift-card-add-second-link', image: 'request_gift_card_image2'} %>
           </div>
 
           <br/>

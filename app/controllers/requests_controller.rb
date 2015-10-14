@@ -39,6 +39,7 @@ class RequestsController < ApplicationController
   def request_params
     params.require(:request).permit(
         :background_color, :terms, :city_or_state, :physical_address, :company_overview, :product_feature,
-        :card_type, :balance_enquire_method, :product_image, :partner_logo, :gift_card_image, :offer_id)
+        :card_type, :balance_enquire_method, :product_image, :partner_logo, :gift_card_image, :offer_id,
+        :product_image2, :partner_logo2, :gift_card_image2)
   end
 end
