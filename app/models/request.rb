@@ -74,6 +74,13 @@ class Request < ActiveRecord::Base
 
 
   def submit_files_to_quickbase
+    fields = Settings.quickbase.referrences['offer_assets']['fields']
+
+    quickbase = Quickbase::Connection.new(
+        apptoken: Settings.quickbase.apptoken,
+        dbid: Settings.quickbase.referrences['offer_assets']['db']
+    )
+
     [:product_image, :partner_logo, :gift_card_image, :product_image2, :partner_logo2, :gift_card_image2].each do |image|
       next unless self.send(image).present?
 
