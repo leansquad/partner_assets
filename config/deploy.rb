@@ -3,6 +3,7 @@ require 'capistrano/ext/multistage'
 # require 'capistrano/sidekiq'
 require 'rvm/capistrano'
 require 'bundler/capistrano'
+require "delayed/recipes"
 
 require File.expand_path('../../lib/capistrano/recipes/database_yml.rb', __FILE__)
 require File.expand_path('../../lib/capistrano/recipes/unicorn.rb', __FILE__)
@@ -74,6 +75,10 @@ end
 
 after 'deploy:finalize_update', 'deploy:db:symlink'
 after 'deploy', 'deploy:migrate', 'deploy:unicorn:restart', 'deploy:cleanup'
+
+after "deploy:stop",    "delayed_job:stop"
+after "deploy:start",   "delayed_job:start"
+after "deploy:restart", "delayed_job:restart"
 
 # set :whenever_command, 'bundle exec whenever'
 # set :whenever_identifier, defer { "#{application}_#{stage}" }

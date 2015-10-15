@@ -33,8 +33,13 @@ gem 'unicorn'
 # Use Capistrano for deployment
 
 gem 'quickbase'
+
 gem 'delayed_job'
+gem 'daemons'
+gem 'delayed_job_active_record'
+
 gem 'paperclip'
+
 gem 'settingslogic'
 
 group :development do
