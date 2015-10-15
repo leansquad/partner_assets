@@ -85,7 +85,7 @@ class Request < ActiveRecord::Base
       next unless self.send(image).present?
 
       quickbase.api.upload_file(
-          quickbase_asset_id, fields[image.to_s].to_s,
+          quickbase_id, fields[image.to_s].to_s,
           File.open(self.send(image).path, 'rb').read, self.send("#{image}_file_name")
       )
     end
