@@ -23,6 +23,7 @@ set :deploy_via, :remote_cache
 # Configure multistage extension
 set :stages, %w(production qa sandbox)
 set :default_stage, 'qa'
+set :delayed_job_command, 'bin/delayed_job'
 
 # Credentials
 ssh_options[:user] = 'deployer'
