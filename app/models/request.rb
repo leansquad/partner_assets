@@ -49,7 +49,9 @@
 class Request < ActiveRecord::Base
 
   validates_presence_of :background_color, :terms, :city_or_state, :physical_address, :company_overview,
-                        :product_feature, :balance_enquire_method, :card_type
+                        :product_feature, :balance_enquire_method, :card_type, :offer_id
+
+  validates_uniqueness_of :offer_id
 
   validates_inclusion_of :card_type, in: ['Plastic Card', 'Certificate', 'Ticket/Voucher']
 

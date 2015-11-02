@@ -7,11 +7,11 @@ class RequestsController < ApplicationController
 
   # GET /requests/new
   def new
-    if session[:submitted_offer_ids].present? && session[:submitted_offer_ids].is_a?(Array) &&
-        session[:submitted_offer_ids].include?(params[:reid])
+    existed_request = Request.find_by(offer_id: params[:reid])
+
+    if existed_request
       render :already_submitted
     else
-      session[:submitted_offer_ids] = [] if session[:submitted_offer_ids].blank?
       @request = Request.new(offer_id: params[:reid])
     end
   end
@@ -21,12 +21,6 @@ class RequestsController < ApplicationController
     @request = Request.new(request_params)
 
     if @request.save
-      if session[:submitted_offer_ids].present? && session[:submitted_offer_ids].is_a?(Array)
-        session[:submitted_offer_ids] << request_params[:offer_id]
-      else
-        session[:submitted_offer_ids] = [request_params[:offer_id]]
-      end
-
       render :show
     else
       render :new
