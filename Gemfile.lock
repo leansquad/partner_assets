@@ -57,6 +57,7 @@ GEM
       capistrano (>= 1.0.0)
     capistrano-rails (1.0.0)
       capistrano
+    chronic (0.10.2)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.7)
@@ -190,6 +191,8 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    whenever (0.9.4)
+      chronic (>= 0.6.3)
 
 PLATFORMS
   ruby
@@ -218,6 +221,7 @@ DEPENDENCIES
   therubyracer
   uglifier (>= 1.3.0)
   unicorn
+  whenever
 
 BUNDLED WITH
    1.10.6

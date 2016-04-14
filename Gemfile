@@ -42,6 +42,8 @@ gem 'paperclip'
 
 gem 'settingslogic'
 
+gem 'whenever'
+
 group :development do
   gem 'capistrano-rails', group: :development
   gem 'annotate'

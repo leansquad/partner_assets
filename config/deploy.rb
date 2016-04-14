@@ -81,9 +81,9 @@ after "deploy:stop",    "delayed_job:stop"
 after "deploy:start",   "delayed_job:start"
 after "deploy:restart", "delayed_job:restart"
 
-# set :whenever_command, 'bundle exec whenever'
-# set :whenever_identifier, defer { "#{application}_#{stage}" }
-# require 'whenever/capistrano'
+set :whenever_command, 'bundle exec whenever'
+set :whenever_identifier, defer { "#{application}_#{stage}" }
+require 'whenever/capistrano'
 
 require './config/boot'
 # require 'airbrake/capistrano'

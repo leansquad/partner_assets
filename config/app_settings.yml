@@ -3,10 +3,20 @@ development:
     username: quickbase@leansquad.com
     password: lsqb2015!
     org: incomm-5923
-    apptoken: fz95s79adpvhcv5b26idhqqwk2
+    apptoken: bgat66jdufxxh5pafvqybxkfxzt
     referrences:
+      enrollments:
+        url: 'http://evo.incomm.leansquad.com/enrollments/'
+        db: bksfqeuhj
+        fields:
+          cycle_id: 13
+          offer_id: 8
+          partner_id: 31
+          url_id: 113
+          offer_status: 23
+          enrollment_id: 3
       offer_assets:
-        db: bj9ghvm9w
+        db: bksfqeuj6
         fields:
           background_color: 19
           terms: 22

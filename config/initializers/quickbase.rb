@@ -2,6 +2,13 @@ Quickbase::Connection.username = Settings.quickbase[:username]
 Quickbase::Connection.password = Settings.quickbase[:password]
 Quickbase::Connection.org = Settings.quickbase[:org]
 
+ROUND_IDS = [1]
+
+CONFIRMED_OFFER_STATUSES = [
+    'Signed',
+    'Transitioned'
+]
+
 # require 'quickbase/round'
 
 
@@ -86,4 +93,33 @@ module Quickbase
       response.xpath("//rid")[0].children[0].text.to_i
     end
   end
+
+  def execute_query(reference, query = '')
+    t = Time.now
+    quickbase = Quickbase::Connection.new(
+        apptoken: Settings.quickbase.apptoken,
+        dbid: Settings.quickbase.referrences[reference]['db']
+    )
+
+    Rails.logger.debug "------------------------------------------------"
+    Rails.logger.debug "Referrence: #{reference}"
+    Rails.logger.debug "DB: #{Settings.quickbase.referrences[reference]['db']}"
+    Rails.logger.debug "Query: #{query}"
+    Rails.logger.debug "Columns IDs: #{(Settings.quickbase.referrences[reference]['fields'].invert.keys).join('.')}"
+    Rails.logger.debug "Columns: #{(Settings.quickbase.referrences[reference]['fields'].invert.values).join('.')}"
+
+    result = quickbase.api.do_query(
+        query: query,
+        clist: Settings.quickbase.referrences[reference]['fields'].invert.keys.join('.'),
+        friendly: Settings.quickbase.referrences[reference]['fields'].invert.values.join('.')
+    )
+
+    Rails.logger.debug "------------------------------------------------"
+    Rails.logger.debug "Duration: #{Time.now - t} seconds"
+    Rails.logger.debug "Count: #{result.count}"
+    Rails.logger.debug "------------------------------------------------"
+
+    result
+  end
 end
+
