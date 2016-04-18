@@ -11,6 +11,6 @@
  * file per style scope.
  *
  *= require jquery.qtip.css
- *= require_tree .
+ *= require style.css.erb
  *= require_self
  */

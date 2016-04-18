@@ -1,26 +1,27 @@
 class EnrollmentsController < ApplicationController
+  before_filter :set_enrollment
 
-  # GET /requests/1
+  # GET /enrollments/1
   def show
-    render :already_submitted
+    render :new
   end
 
-  # GET /requests/new
+  # GET /enrollments/new
   def new
-    existed_request = Request.find_by(offer_id: params[:reid])
+    existed_enrollment = Request.find_by(offer_id: params[:reid])
 
-    if existed_request
+    if existed_enrollment
       render :already_submitted
     else
-      @request = Request.new(offer_id: params[:reid])
+      @enrollment = Request.new(offer_id: params[:reid])
     end
   end
 
-  # POST /requests
+  # POST /enrollments
   def create
-    @request = Request.new(request_params)
+    @enrollment = Request.new(enrollment_params)
 
-    if @request.save
+    if @enrollment.save
       render :show
     else
       render :new
@@ -30,10 +31,11 @@ class EnrollmentsController < ApplicationController
   private
 
   # Only allow a trusted parameter "white list" through.
-  def request_params
-    params.require(:request).permit(
-        :background_color, :terms, :city_or_state, :physical_address, :company_overview, :product_feature,
-        :card_type, :balance_enquire_method, :product_image, :partner_logo, :gift_card_image, :offer_id,
-        :product_image2, :partner_logo2, :gift_card_image2)
+  # def enrollment_params
+  #   params.require(:enrollment).permit(:id)
+  # end
+
+  def set_enrollment
+    @enrollment = Enrollment.new(params)
   end
 end

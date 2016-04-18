@@ -1,0 +1,185 @@
+<!--<!doctype html>-->
+<!--<html class="no-js" lang="">-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<meta name="description" content="">-->
+<!--<meta name="viewport" content="width=device-width,initial-scale=1">-->
+<!--<title>Online Enrollment Form</title>-->
+<!--<link rel="apple-touch-icon" href="apple-touch-icon.png">-->
+<!--&lt;!&ndash; Place favicon.ico in the root directory &ndash;&gt;-->
+<!--<link rel="stylesheet" href="styles/main.css">-->
+<!--<script src="scripts/vendor/modernizr.js"></script>-->
+<!--</head>-->
+<!--<body>&lt;!&ndash;[if lt IE 10]>-->
+<!--<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade-->
+<!--your browser</a> to improve your experience.</p>-->
+<!--<![endif]&ndash;&gt;-->
+<div class="container enrollment-page">
+  <div class="row header-top">
+    <div class="col-xs-12">
+      <div class="wrapper-images">
+        <div class="image col-sm-12">
+          <!--<img src="<%= asset_path('incomm_logo.jpeg') %>" alt="">-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12"><h1>Sam’s Extreme Value Program – Online Offer Form</h1></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 details"><h2>Partner & Product Details</h2>
+
+      <p>
+        Partner Name – <%= @enrollment.partner[:partner_name] %>
+        <br>
+        Category – <%= @enrollment.partner[:category_name] %>
+        <br>
+        Total Participating Locations - <%= @enrollment.partner[:partner_location_count] %>
+        <br>
+        Type of Product - <%= @enrollment.partner[:type_of_product] %>
+        <br>
+        Total Clubs Mapped within 20 miles (final club selection and
+        number of clubs to be determined by Sam’s Club) - <%= @enrollment.total_clubs_mapped %>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 details"><h2>Offer Details</h2>
+
+      <p>
+        Consumer Offer - <%= @enrollment.offer[:offer_details] %>
+        <br>
+        Total Offer Cost to InComm - <%= number_to_currency(@enrollment.offer[:total_offer_cost]) %>
+        <br>
+        Total Margin to InComm - <%= number_to_currency(@enrollment.offer[:total_incomm_margin].to_f * 100) %>
+        <br>
+        Gift card balance inquiry phone number (Required for Gift Cards) - <%= @enrollment.offer[:balance_inquery_method] %>
+        <br>
+        Offer Period (Exact dates subject to change) -
+        <%= (@enrollment.round[:sales_period_start].present? || @enrollment.round[:sales_period_end].present?)  ? @enrollment.round[:sales_period_start] + "-" + @enrollment.round[:sales_period_end] : ''%>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 details"><h3>Program costs</h3>
+      <ul>
+        <li>Partner is responsible for the cost of the Products and shipping costs to InComm.</li>
+        <li>InComm to cover cost of production for pull cards and shipping costs to Sam’s Club.</li>
+        <li>Payment for Products will be due to Partner within 60 days after receipt of Products and valid invoice by
+          InComm.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 details"><h3>Program Terms</h3>
+      <ul>
+        <li>Products will be shipped active by Partner to an InComm designated location.</li>
+        <li>Partner is responsible for the value of the Products until receipt by InComm.</li>
+        <li>Partner will buy back all remaining inventory after the offer period expires.</li>
+        <li>This offer will also be available through Samsclub.com.</li>
+        <li>Products will be treated as tender at redemption at Partner’s stores and will have no restrictions on use.
+        </li>
+        <li>Partner will have readily available Product samples.</li>
+        <li>Partner will provide, and authorizes InComm to use, art components needed for pull card creation (high
+          resolution logo, high resolution product image and text for terms and conditions).
+        </li>
+        <li>Partner authorizes InComm to use art components from Partner’s website as required for the program.</li>
+        <li>Partner is responsible for remitting all applicable taxes to tax authorities. Partner will provide InComm
+          with any resale certificates or other legally sufficient exemption certificates for applicable taxes as
+          requested.
+        </li>
+        <li>Acceptance of this Online Offer Form does not guarantee Partner’s right to participate. Final approval of
+          Partner’s participation is subject to InComm and Sam’s Club approval.
+        </li>
+        <li>All terms and conditions relating to the Extreme Value Program remain subject to the terms and conditions of
+          the applicable InComm Purchase Order or execution of a separate, binding agreement, if applicable.
+        </li>
+      </ul>
+      <p>Under the Electronic Signatures in Global and National Commerce Act (“E-Sign”), acceptance of the terms and
+        conditions of this Online Offer Form is legally binding in the same manner as are hard copy documents executed
+        by hand signature. This Online Offer Form shall be governed by the provisions of E-Sign.</p>
+
+      <p>By pressing Accept and Continue, you agree (i) that Partner’s acceptance of the terms and conditions of this
+        Online Offer Form shall be effective by electronic means, (ii) that Partner is to be bound by the terms and
+        conditions of this Online Offer Form, and (iii) that you have the ability to print or otherwise store this
+        Online Offer Form.</p></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= form_tag enrollment_path, class: 'form-horizontal enrollment-form' do %>
+          <div class="form-group">
+            <div class="col-xs-1 text-center"><input type="checkbox" id="terms" required="required"></div>
+            <label for="terms" class="col-xs-10 control-label">I have read and accept the details and terms and
+              conditions
+              of this Online Offer Form.</label></div>
+          <div class="form-group">
+            <div class="col-xs-1 text-center"><input type="checkbox" id="auth" required="required"></div>
+            <label for="auth" class="col-xs-10 control-label">I am an authorized representative of the above referenced
+              Partner to sign documents and accept the terms and conditions of this Online Offer Form.</label></div>
+          <div class="form-group">
+            <label for="user_full_name" class="col-sm-4 col-md-5 control-label">Please type your full name</label>
+
+            <div class="col-sm-8 col-md-7">
+              <input type="text" class="form-control" id="user_full_name" required="required"></div>
+          </div>
+          <div class="form-group">
+            <label for="user_position" class="col-sm-4 col-md-5 control-label">Please type your title/position at
+              [Partner
+              Name]</label>
+
+            <div class="col-sm-8 col-md-7">
+              <input type="text" class="form-control" id="user_position" required="required">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="user_email" class="col-sm-4 col-md-5 control-label">Please type your email address</label>
+
+            <div class="col-sm-8 col-md-7"><input type="email" class="form-control" id="user_email" required="required">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-2">
+              <button type="submit" class="btn btn-success">Accept</button>
+            </div>
+            <div class="col-xs-2 col-xs-offset-1 col-md-1 col-md-offset-0">
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#declinePopup">Decline</button>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!-- Decline popup -->
+<div id="declinePopup" class="modal fade" role="dialog">
+  <div class="modal-dialog"><!-- Modal content-->
+    <div class="declinePopup-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Please specify the reason for declining the offer</h4></div>
+      <form class="decline-enrollment-form">
+        <div class="modal-body">
+          <div class="form-group row">
+            <div class="col-xs-1 text-center"><input type="checkbox" id="reason1"></div>
+            <label for="reason1" class="col-xs-10 control-label">I want to participate in another season</label></div>
+          <div class="form-group row">
+            <div class="col-xs-1 text-center"><input type="checkbox" id="reason2"></div>
+            <label for="reason2" class="col-xs-10 control-label">Participation is too costly</label></div>
+          <div class="form-group row">
+            <div class="col-xs-1 text-center"><input type="checkbox" id="reason3"></div>
+            <label for="reason3" class="col-xs-10 control-label">Other</label></div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Ok</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!--<script src="scripts/vendor.js"></script>-->
+<!--<script src="scripts/plugins.js"></script>-->
+<!--<script src="scripts/main.js"></script>-->
+<!--</body>-->
+<!--</html>-->

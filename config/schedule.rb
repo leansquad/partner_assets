@@ -17,6 +17,6 @@ set :output, 'log/cron.log'
 #   rake 'scheduler:clean_old_sessions'
 # end
 #
-every 5.minutes do
-  runner 'SetHashesForEnrollmentsJob.perform_later'
-end
+# every 5.minutes do
+#   runner 'SetHashesForEnrollmentsJob.perform_later'
+# end

@@ -9,12 +9,36 @@ development:
         url: 'http://evo.incomm.leansquad.com/enrollments/'
         db: bksfqeuhj
         fields:
-          cycle_id: 13
+          id: 3
+          round_id: 13
           offer_id: 8
-          partner_id: 31
-          url_id: 113
+          partner_id: 27
+          uid: 114
           offer_status: 23
-          enrollment_id: 3
+          total_clubs_mapped: 112
+      partners:
+        db: bksfqeuc2
+        fields:
+          id: 3
+          category_name: 75
+          partner_name: 6
+          type_of_product: 73
+          partner_location_count: 80
+      offers:
+        db: bksfqeufh
+        fields:
+          id: 3
+          offer_details: 6
+          partner_id: 18
+          total_offer_cost: 22
+          total_incomm_margin: 51
+          balance_inquery_method: 34
+      rounds:
+        db: bksfqeuhe
+        fields:
+          id: 3
+          sales_period_start: 18
+          sales_period_end: 19
       offer_assets:
         db: bksfqeuj6
         fields:
@@ -65,7 +89,7 @@ qa:
     username: quickbase@leansquad.com
     password: lsqb2015!
     org: incomm-5923
-    apptoken: fz95s79adpvhcv5b26idhqqwk2
+    apptoken: bgat66jdufxxh5pafvqybxkfxzt
     referrences:
       offer_assets:
         db: bj9ghvm9w
@@ -85,3 +109,36 @@ qa:
           gift_card_image: 16
           gift_card_image2: 77
           offer_id: 8
+      enrollments:
+        db: bksfqeuhj
+        fields:
+          id: 3
+          round_id: 13
+          offer_id: 8
+          partner_id: 27
+          uid: 114
+          offer_status: 23
+          total_clubs_mapped: 112
+      partners:
+        db: bksfqeuc2
+        fields:
+          id: 3
+          category_name: 75
+          partner_name: 6
+          type_of_product: 73
+          partner_location_count: 80
+      offers:
+        db: bksfqeufh
+        fields:
+          id: 3
+          offer_details: 6
+          partner_id: 18
+          total_offer_cost: 22
+          total_incomm_margin: 51
+          balance_inquery_method: 34
+      rounds:
+        db: bksfqeuhe
+        fields:
+          id: 3
+          sales_period_start: 18
+          sales_period_end: 19
