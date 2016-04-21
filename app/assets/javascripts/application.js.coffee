@@ -12,6 +12,8 @@
 #
 #= require jquery-1.10.2.min
 #= require jquery.qtip
+#= require jquery-ui
+#= require jquery.modal
 
 
 $(document).ready ->

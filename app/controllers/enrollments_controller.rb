@@ -1,39 +1,31 @@
 class EnrollmentsController < ApplicationController
-  before_filter :set_enrollment
+  before_filter :set_enrollment, only: :show
 
   # GET /enrollments/1
   def show
     render :new
   end
 
-  # GET /enrollments/new
-  def new
-    existed_enrollment = Request.find_by(offer_id: params[:reid])
-
-    if existed_enrollment
-      render :already_submitted
-    else
-      @enrollment = Request.new(offer_id: params[:reid])
-    end
-  end
-
   # POST /enrollments
   def create
-    @enrollment = Request.new(enrollment_params)
+    form_params = enrollment_params.merge(request_info: Geocoder.search(request.remote_ip))
+    @enrollment = EnrollmentForm.new(form_params)
+    @enrollment.push
 
-    if @enrollment.save
-      render :show
-    else
-      render :new
-    end
+    render 'thank_you'
   end
 
   private
 
   # Only allow a trusted parameter "white list" through.
-  # def enrollment_params
-  #   params.require(:enrollment).permit(:id)
-  # end
+  def enrollment_params
+    params.
+        require(:enrollment).
+        permit(:id, :success, :of_terms_and_conditions, :of_authorized_to_sign,
+               :of_partner_rep_name, :of_partner_rep_title, :of_partner_rep_email,
+               :decline, :decline_reason1, :decline_reason2, :decline_reason3
+        )
+  end
 
   def set_enrollment
     @enrollment = Enrollment.new(params)
