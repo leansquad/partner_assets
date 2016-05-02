@@ -61,6 +61,8 @@ development:
           balance_enquire_method: 12
           product_image: 21
           product_image2: 76
+          product_image3: 88
+          product_image4: 89
           partner_logo: 17
           partner_logo2: 78
           gift_card_image: 16
@@ -89,6 +91,8 @@ production:
           product_image2: 76
           partner_logo: 17
           partner_logo2: 78
+          product_image3: 88
+          product_image4: 89
           gift_card_image: 16
           gift_card_image2: 77
           offer_id: 8
@@ -115,6 +119,8 @@ qa:
           product_image2: 76
           partner_logo: 17
           partner_logo2: 78
+          product_image3: 88
+          product_image4: 89
           gift_card_image: 16
           gift_card_image2: 77
           offer_id: 8
