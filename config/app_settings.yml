@@ -40,6 +40,8 @@ development:
           offer_details: 6
           partner_id: 18
           total_offer_cost: 22
+          total_margin: 50
+          customer_discount_margin: 52
           total_incomm_margin: 51
           balance_inquery_method: 34
       rounds:
@@ -159,6 +161,8 @@ qa:
           offer_details: 6
           partner_id: 18
           total_offer_cost: 22
+          total_margin: 50
+          customer_discount_margin: 52
           total_incomm_margin: 51
           balance_inquery_method: 34
       rounds:
