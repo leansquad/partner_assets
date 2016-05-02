@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20151014051208
+# Schema version: 20160502111859
 #
 # Table name: requests
 #
@@ -40,6 +40,14 @@
 #  gift_card_image2_content_type :string
 #  gift_card_image2_file_size    :integer
 #  gift_card_image2_updated_at   :datetime
+#  product_image3_file_name      :string
+#  product_image3_content_type   :string
+#  product_image3_file_size      :integer
+#  product_image3_updated_at     :datetime
+#  product_image4_file_name      :string
+#  product_image4_content_type   :string
+#  product_image4_file_size      :integer
+#  product_image4_updated_at     :datetime
 #
 # Indexes
 #
@@ -47,6 +55,11 @@
 #
 
 class Request < ActiveRecord::Base
+  IMAGE_NAMES = [
+      :product_image, :product_image2, :product_image3, :product_image4,
+      :partner_logo, :partner_logo2,
+      :gift_card_image, :gift_card_image2
+  ]
 
   validates_presence_of :background_color, :terms, :city_or_state, :physical_address, :company_overview,
                         :product_feature, :balance_enquire_method, :card_type, :offer_id
@@ -55,24 +68,18 @@ class Request < ActiveRecord::Base
 
   validates_inclusion_of :card_type, in: ['Plastic Card', 'Certificate', 'Ticket/Voucher']
 
-  after_create :add_quickbase_record
+  after_commit :add_quickbase_record, on: :create
 
-  has_attached_file :product_image
-  has_attached_file :product_image2
-  has_attached_file :partner_logo
-  has_attached_file :partner_logo2
-  has_attached_file :gift_card_image
-  has_attached_file :gift_card_image2
+  IMAGE_NAMES.each do |image_name|
+    has_attached_file image_name
+    do_not_validate_attachment_file_type image_name
+  end
+
+  # has_attached_file :product_image2
 
   # validates_attachment_content_type :product_image, content_type: /\Aimage\/.*\Z/
-  # validates_attachment_content_type :partner_logo, content_type: /\Aimage\/.*\Z/
-  # validates_attachment_content_type :gift_card_image, content_type: /\Aimage\/.*\Z/
-  do_not_validate_attachment_file_type :product_image
-  do_not_validate_attachment_file_type :product_image2
-  do_not_validate_attachment_file_type :partner_logo
-  do_not_validate_attachment_file_type :partner_logo2
-  do_not_validate_attachment_file_type :gift_card_image
-  do_not_validate_attachment_file_type :gift_card_image2
+
+  # do_not_validate_attachment_file_type :gift_card_image2
 
 
   def submit_files_to_quickbase
@@ -83,7 +90,7 @@ class Request < ActiveRecord::Base
         dbid: Settings.quickbase.referrences['offer_assets']['db']
     )
 
-    [:product_image, :partner_logo, :gift_card_image, :product_image2, :partner_logo2, :gift_card_image2].each do |image|
+    IMAGE_NAMES.each do |image|
       next unless self.send(image).present?
 
       quickbase.api.upload_file(

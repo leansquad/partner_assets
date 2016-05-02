@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151015180413) do
+ActiveRecord::Schema.define(version: 20160502111859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,14 @@ ActiveRecord::Schema.define(version: 20151015180413) do
     t.string   "gift_card_image2_content_type"
     t.integer  "gift_card_image2_file_size"
     t.datetime "gift_card_image2_updated_at"
+    t.string   "product_image3_file_name"
+    t.string   "product_image3_content_type"
+    t.integer  "product_image3_file_size"
+    t.datetime "product_image3_updated_at"
+    t.string   "product_image4_file_name"
+    t.string   "product_image4_content_type"
+    t.integer  "product_image4_file_size"
+    t.datetime "product_image4_updated_at"
   end
 
   add_index "requests", ["quickbase_id"], name: "index_requests_on_quickbase_id", using: :btree

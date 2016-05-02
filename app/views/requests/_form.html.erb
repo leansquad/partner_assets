@@ -119,12 +119,24 @@
           <div class="field add-second-image-link" id="product-image-add-second-link" data-div="product-image-add-second-image">
             <%= image_tag 'add_icon.png', class: 'add-icon-image' %>
             <span class="add-additional-image">
-              Add additional image
+              Add additional images
             </span>
           </div>
 
           <div class="field second-image-form" id="product-image-add-second-image">
             <%= f.file_field :product_image2 %>
+            <%= image_tag 'remove_icon.png', class: 'remove-icon-image remove-second-image-link',
+                          data: {div: 'product-image-add-second-link', image: 'request_product_image2'} %>
+          </div>
+
+          <div class="field second-image-form" id="product-image-add-second-image">
+            <%= f.file_field :product_image3 %>
+            <%= image_tag 'remove_icon.png', class: 'remove-icon-image remove-second-image-link',
+                          data: {div: 'product-image-add-second-link', image: 'request_product_image2'} %>
+          </div>
+
+          <div class="field second-image-form" id="product-image-add-second-image">
+            <%= f.file_field :product_image4 %>
             <%= image_tag 'remove_icon.png', class: 'remove-icon-image remove-second-image-link',
                           data: {div: 'product-image-add-second-link', image: 'request_product_image2'} %>
           </div>

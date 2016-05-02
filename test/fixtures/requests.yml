@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20151014051208
+# Schema version: 20160502111859
 #
 # Table name: requests
 #
@@ -40,6 +40,14 @@
 #  gift_card_image2_content_type :string
 #  gift_card_image2_file_size    :integer
 #  gift_card_image2_updated_at   :datetime
+#  product_image3_file_name      :string
+#  product_image3_content_type   :string
+#  product_image3_file_size      :integer
+#  product_image3_updated_at     :datetime
+#  product_image4_file_name      :string
+#  product_image4_content_type   :string
+#  product_image4_file_size      :integer
+#  product_image4_updated_at     :datetime
 #
 # Indexes
 #
