@@ -7296,3 +7296,33 @@ img.incomm-logo {
     color: #ffffff;
     font-size: 16px;
 }
+
+.wrapper {
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 12px;
+    min-width: 800px;
+    overflow-x: hidden;
+    margin: auto
+}
+
+.wrapper .logo img {
+    width: 200px;
+    height: auto;
+}
+
+.wrapper hr {
+    color: #427CD8;
+    background-color: #3e7adb;
+    margin-top: 0;
+    height: 1px;
+    border: 0;
+    margin-bottom: 3px;
+}
+
+.wrapper .stextcell {
+    white-space: normal;
+    max-width: 80em;
+    position: relative;
+    padding: 15px 33px 15px 33px
+}
