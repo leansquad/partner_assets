@@ -29,54 +29,61 @@
   </div>
   <div class="row">
     <div class="col-sm-12 details">
-      <h2>Partner & Distribution Details</h2>
-
-      <p>
-        Partner Name – <%= @enrollment.partner[:partner_name] %>
-        <br>
-        Category – <%= @enrollment.partner[:category_name] %>
-        <br>
-        Total Participating Locations - <%= @enrollment.partner[:partner_location_count] %>
-        <!--<br>-->
-        <!--Type of Product ---> <%#= @enrollment.partner[:type_of_product] %>
-        <br>
-        Total Clubs Mapped within 20 miles (final club selection and
-        number of clubs to be determined by Sam’s Club) - <%= @enrollment.total_clubs_mapped %>
-      </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12 details"><h2>Offer Details</h2>
-
-      <p>
-        Consumer Offer - <%= @enrollment.offer[:offer_details] %>
-        <br>
-        Total Offer Cost to InComm - <%= number_to_currency(@enrollment.offer[:total_offer_cost]) %>
-        <br>
-        Total Margin - <%= number_to_percentage(@enrollment.offer[:total_margin].to_f * 100, precision: 2) %>
-        <br>
-        Consumer Discount Margin
-        - <%= number_to_percentage(@enrollment.offer[:customer_discount_margin].to_f * 100, precision: 2) %>
-        <br>
-        Total Margin to InComm
-        - <%= number_to_percentage(@enrollment.offer[:total_incomm_margin].to_f * 100, precision: 2) %>
-        <br>
-        Gift card balance inquiry phone number (Required for Gift Cards)
-        -  <%= @enrollment.offer[:balance_inquery_method] %>
-        <br>
-        Offer Period (Exact dates subject to change) -
-        <br>
-      <table width="100%" border="1px">
-        <tr>
-          <td width="50%" class="text-left" style="padding: 10px;">
-            <%= @enrollment.round[:sales_period_start].presence %>
-          </td>
-          <td class="text-left" style="padding: 10px;">
-            <%= @enrollment.round[:sales_period_end].presence %>
-          </td>
-        </tr>
+      <table width="100%" border="1" cellspacing="0">
+        <tbody>
+            <tr>
+              <td colspan = "2" class="table-header">Partner & Distribution Details</td>
+            </tr>
+            <tr>
+              <td>Partner Name</td>
+              <td><%= @enrollment.partner[:partner_name] %></td>
+            </tr>
+            <tr>
+              <td>Category</td>
+              <td><%= @enrollment.partner[:category_name] %></td>
+            </tr>
+            <tr>
+              <td>Total Participating Locations</td>
+              <td><%= @enrollment.partner[:partner_location_count] %></td>
+            </tr>
+            <tr>
+              <td>Total Clubs Mapped within 20 miles <span>(final club selection and
+                number of clubs to be determined by Sam’s Club)</span></td>
+              <td><%= @enrollment.total_clubs_mapped %></td>
+            </tr>
+            <tr>
+              <td colspan="2" class="table-header">Offer Details</td>
+            </tr>
+            <tr>
+              <td>Consumer Offer</td>
+              <td><%= @enrollment.offer[:offer_details] %></td>
+            </tr>
+            <tr>
+              <td>Total Offer Cost to InComm</td>
+              <td><%= number_to_currency(@enrollment.offer[:total_offer_cost]) %></td>
+            </tr>
+            <tr>
+              <td>Total Margin</td>
+              <td><%= number_to_percentage(@enrollment.offer[:total_margin].to_f * 100, precision: 2) %></td>
+            </tr>
+            <tr>
+              <td>Consumer Discount Margin</td>
+              <td><%= number_to_percentage(@enrollment.offer[:customer_discount_margin].to_f * 100, precision: 2) %></td>
+            </tr>
+            <tr>
+              <td>Total Margin to InComm</td>
+              <td><%= number_to_percentage(@enrollment.offer[:total_incomm_margin].to_f * 100, precision: 2) %></td>
+            </tr>
+            <tr>
+              <td>Gift card balance inquiry phone number <span>(Required for Gift Cards)</span></td>
+              <td><%= @enrollment.offer[:balance_inquery_method] %></td>
+            </tr>
+            <tr>
+              <td>Offer Period <span>(Exact dates subject to change)</span></td>
+              <td><%= @enrollment.round[:sales_period_start].presence %> - <%= @enrollment.round[:sales_period_end].presence %></td>
+            </tr>
+        </tbody>
       </table>
-      </p>
     </div>
   </div>
   <div class="row">

@@ -7270,3 +7270,29 @@ img.incomm-logo {
     border-color: #ac2925;
 }
 
+.enrollment-page table {
+    margin-top: 20px;
+}
+
+.enrollment-page table tr td {
+    width: 50%;
+    padding: 10px;
+}
+
+.enrollment-page table tr td:first-child {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+.enrollment-page table tr td:first-child span {
+    font-weight: normal;
+    font-size: 12px;
+}
+
+
+.enrollment-page .table-header {
+    background-color: #2f5c93;
+    color: #ffffff;
+    font-size: 16px;
+}
