@@ -11,9 +11,7 @@ html {
     -webkit-text-size-adjust: 100%
 }
 
-body {
-    margin: 0
-}
+
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
     display: block
@@ -7090,11 +7088,6 @@ button.close {
     padding: .2em 0
 }
 
-body {
-    padding-top: 20px;
-    padding-bottom: 20px
-}
-
 .footer, .header, .marketing {
     padding-left: 15px;
     padding-right: 15px
@@ -7163,7 +7156,13 @@ body {
 }
 
 .enrollment-page {
-    font-family: proxima nova light, ​sans-serif
+    font-family: "HelveticaNeue-Roman", "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 12px;
+    min-width: 800px;
+    overflow-x: hidden;
+    margin: auto
 }
 
 .enrollment-page .header-top {
@@ -7172,8 +7171,14 @@ body {
 }
 
 .enrollment-page h1 {
-    color: #4182b8;
-    margin-bottom: 20px
+    color: #427CD8;
+    margin: 0;
+    font-family: "HelveticaNeue-Roman", "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #427CD8;
+    padding-top: 5px;
+    padding-bottom: 2px;
 }
 
 .enrollment-page .welcome {
@@ -7213,7 +7218,55 @@ body {
     font-weight: 700
 }
 
+.enrollment-page .image {
+    padding: 0;
+}
+
 img.incomm-logo {
     width: 200px;
     height: auto;
 }
+
+.enrollment-page .accept,.enrollment-page .decline {
+    cursor: pointer; /*forces the cursor to change to a hand when the button is hovered*/
+    padding: 7px 15px; /*add some padding to the inside of the button*/
+    background: #35b128; /*the colour of the button*/
+    border: 1px solid #33842a; /*required or the default border for the browser will appear*/
+    /*give the button curved corners, alter the size as required*/
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    /*give the button a drop shadow*/
+    -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, .75);
+    -moz-box-shadow: 0 0 4px rgba(0, 0, 0, .75);
+    box-shadow: 0 0 4px rgba(0, 0, 0, .75);
+    /*style the text*/
+    color: #f3f3f3;
+    font-size: 1.1em;
+    margin-top: 10px;
+    outline: none;
+}
+
+.enrollment-page .decline {
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.enrollment-page .accept:hover,
+.enrollment-page .accept:focus,
+.enrollment-page .decline:hover,
+.enrollment-page .decline:focus {
+    background-color: #399630; /*make the background a little darker*/
+    /*reduce the drop shadow size to give a pushed button effect*/
+    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .75);
+    -moz-box-shadow: 0 0 1px rgba(0, 0, 0, .75);
+}
+
+
+.enrollment-page .decline:hover,
+.enrollment-page .decline:focus {
+    color: #fff;
+    background-color: #c9302c;
+    border-color: #ac2925;
+}
+
