@@ -48,6 +48,8 @@ gem 'whenever'
 
 gem 'geocoder', github: 'alexreisner/geocoder'
 
+gem 'airbrake', '=4.3.0'
+
 group :development do
   gem 'capistrano-rails', group: :development
   gem 'annotate'

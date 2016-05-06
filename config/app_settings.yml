@@ -53,23 +53,23 @@ development:
       offer_assets:
         db: bksfqeuj6
         fields:
-          background_color: 19
-          terms: 22
-          city_or_state: 14
-          physical_address: 18
-          company_overview: 15
-          product_feature: 20
-          card_type: 23
-          balance_enquire_method: 12
-          product_image: 21
-          product_image2: 76
-          product_image3: 88
-          product_image4: 89
-          partner_logo: 17
-          partner_logo2: 78
-          gift_card_image: 16
-          gift_card_image2: 77
-          offer_id: 8
+          background_color: 8
+          terms: 9
+          city_or_state: 10
+          physical_address: 11
+          company_overview: 12
+          product_feature: 13
+          card_type: 14
+          balance_enquire_method: 15
+          product_image: 6
+          product_image2: 31
+          product_image3: 32
+          product_image4: 33
+          partner_logo: 7
+          partner_logo2: 34
+          gift_card_image: 21
+          gift_card_image2: 35
+          offer_id: 28
 
 production:
   quickbase:
@@ -107,25 +107,25 @@ qa:
     apptoken: bgat66jdufxxh5pafvqybxkfxzt
     referrences:
       offer_assets:
-        db: bj9ghvm9w
+        db: bksfqeuj6
         fields:
-          background_color: 19
-          terms: 22
-          city_or_state: 14
-          physical_address: 18
-          company_overview: 15
-          product_feature: 20
-          card_type: 23
-          balance_enquire_method: 12
-          product_image: 21
-          product_image2: 76
-          partner_logo: 17
-          partner_logo2: 78
-          product_image3: 88
-          product_image4: 89
-          gift_card_image: 16
-          gift_card_image2: 77
-          offer_id: 8
+          background_color: 8
+          terms: 9
+          city_or_state: 10
+          physical_address: 11
+          company_overview: 12
+          product_feature: 13
+          card_type: 14
+          balance_enquire_method: 15
+          product_image: 6
+          product_image2: 31
+          product_image3: 32
+          product_image4: 33
+          partner_logo: 7
+          partner_logo2: 34
+          gift_card_image: 21
+          gift_card_image2: 35
+          offer_id: 28
       enrollments:
         db: bksfqeuhj
         fields:

@@ -86,4 +86,4 @@ set :whenever_identifier, defer { "#{application}_#{stage}" }
 require 'whenever/capistrano'
 
 require './config/boot'
-# require 'airbrake/capistrano'
+require 'airbrake/capistrano'
