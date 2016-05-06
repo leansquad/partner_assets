@@ -68,7 +68,7 @@ class Request < ActiveRecord::Base
 
   validates_inclusion_of :card_type, in: ['Plastic Card', 'Certificate', 'Ticket/Voucher']
 
-  after_commit :add_quickbase_record, on: :create
+  after_create :add_quickbase_record
 
   IMAGE_NAMES.each do |image_name|
     has_attached_file image_name
