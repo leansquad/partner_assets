@@ -18,3 +18,4 @@
 #= require enrollment/plugins
 #= require enrollment/vendor
 #= require enrollment/vendor/modernizr
+

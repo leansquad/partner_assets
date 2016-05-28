@@ -3,7 +3,7 @@ class Enrollment
 
   def initialize(args)
     @partner = @round = @offer = {}
-    @offer_id = @round_id =@partner_id = nil
+    @offer_id = @round_id = @partner_id = nil
 
     attributes = execute_query('enrollments', prepare_filter(args[:id], 'enrollments', 'uid'))[0]
     return unless attributes.present?

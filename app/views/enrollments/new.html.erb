@@ -134,12 +134,13 @@
   <div class="row">
     <div class="col-sm-12">
       <%= form_tag '/enrollments', method: :post, class: 'form-horizontal enrollment-form', id: 'enrollment-form' do %>
-          <input type="hidden" name="enrollment[id]" id="terms" value="<%= @enrollment.id %>">
-          <input type="hidden" name="enrollment[success]" id="terms" value="true">
+          <input type="hidden" name="enrollment_form[enrollment_id]" id="enrollment_id" value="<%= @enrollment.id %>">
+          <input type="hidden" name="enrollment_form[enrollment_uid]" id="enrollment_uid" value="<%= @enrollment.uid %>">
+          <input type="hidden" name="enrollment_form[success]" id="success" value="true">
 
           <div class="form-group">
             <div class="col-xs-1 text-center">
-              <input type="checkbox" name="enrollment[of_terms_and_conditions]" id="terms" required="required" value="Accepted">
+              <input type="checkbox" name="enrollment_form[of_terms_and_conditions]" id="terms" required="required" value="Accepted">
             </div>
             <label for="terms" class="col-xs-10 control-label">
               I have read and accept the details and terms and conditions of this Online Offer Form.
@@ -147,7 +148,7 @@
           </div>
           <div class="form-group">
             <div class="col-xs-1 text-center">
-              <input type="checkbox" name="enrollment[of_authorized_to_sign]" id="auth" required="required" value="YES">
+              <input type="checkbox" name="enrollment_form[of_authorized_to_sign]" id="auth" required="required" value="YES">
             </div>
             <label for="auth" class="col-xs-10 control-label">
               I am an authorized representative of the above referenced Partner to sign documents and accept the terms
@@ -160,7 +161,7 @@
             </label>
 
             <div class="col-sm-8 col-md-7">
-              <input type="text" name="enrollment[of_partner_rep_name]" class="form-control" id="user_full_name" required="required">
+              <input type="text" name="enrollment_form[of_partner_rep_name]" class="form-control" id="user_full_name" required="required">
             </div>
           </div>
           <div class="form-group">
@@ -169,7 +170,7 @@
             </label>
 
             <div class="col-sm-8 col-md-7">
-              <input type="text" name="enrollment[of_partner_rep_title]" class="form-control" id="user_position" required="required">
+              <input type="text" name="enrollment_form[of_partner_rep_title]" class="form-control" id="user_position" required="required">
             </div>
           </div>
           <div class="form-group">
@@ -178,7 +179,7 @@
             </label>
 
             <div class="col-sm-8 col-md-7">
-              <input type="email" name="enrollment[of_partner_rep_email]" class="form-control" id="user_email" required="required">
+              <input type="email" name="enrollment_form[of_partner_rep_email]" class="form-control" id="user_email" required="required">
             </div>
           </div>
           <div class="form-group">
@@ -205,35 +206,57 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Please specify the reason for declining the offer</h4></div>
       <%= form_tag '/enrollments', method: :post, class: 'decline-enrollment-form' do %>
-          <input type="hidden" name="enrollment[id]" id="terms" value="<%= @enrollment.id %>">
-          <input type="hidden" name="enrollment[decline]" id="terms" value="true">
+          <input type="hidden" name="enrollment_form[enrollment_id]" id="enrollment_id" value="<%= @enrollment.id %>">
+          <input type="hidden" name="enrollment_form[enrollment_uid]" id="enrollment_uid" value="<%= @enrollment.uid %>">
+          <input type="hidden" name="enrollment_form[success]" id="success" value="false">
+	      <input type="hidden" name="enrollment_form[of_terms_and_conditions]" id="terms" required="required">
+	      <input type="hidden" name="enrollment_form[of_authorized_to_sign]" id="auth" required="required">
+          <input type="hidden" name="enrollment_form[of_partner_rep_name]" id="user_full_name">
+          <input type="hidden" name="enrollment_form[of_partner_rep_title]" id="user_position">
+	      <input type="hidden" name="enrollment_form[of_partner_rep_email]" id="user_email">
           <!--<form class="decline-enrollment-form">-->
           <div class="modal-body">
             <div class="form-group row">
               <div class="col-xs-1 text-center">
-                <input type="checkbox" name="enrollment[decline_reason1]"
+                <input type="checkbox" name="enrollment_form[decline_reason1]"
                        id="reason1" value="I want to participate in another season">
               </div>
               <label for="reason1" class="col-xs-10 control-label">I want to participate in another season</label></div>
             <div class="form-group row">
               <div class="col-xs-1 text-center">
-                <input type="checkbox" id="reason2" name="enrollment[decline_reason2]" value="Participation is too costly">
+                <input type="checkbox" id="reason2" name="enrollment_form[decline_reason2]" value="Participation is too costly">
               </div>
               <label for="reason2" class="col-xs-10 control-label">Participation is too costly</label></div>
             <div class="form-group row">
               <div class="col-xs-1 text-center">
-                <input type="checkbox" id="reason3" name="enrollment[decline_reason3]" value="Other">
+                <input type="checkbox" id="reason3" name="enrollment_form[decline_reason3]" value="Other">
               </div>
               <label for="reason3" class="col-xs-10 control-label">Other</label></div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Ok</button>
+            <button type="submit" class="btn btn-primary" id='submit-decline-form'>Ok</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
           </div>
       <% end %>
     </div>
   </div>
 </div>
+<script>
+	$(document).on('click', 'button#submit-decline-form', function(event){
+		event.preventDefault();
+		
+		var approve_form = $('form.enrollment-form');
+		var decline_form = $('form.decline-enrollment-form');
+		
+		decline_form.find('input#terms').val(approve_form.find('input#terms').val());
+		decline_form.find('input#auth').val(approve_form.find('input#auth').val());
+		decline_form.find('input#user_full_name').val(approve_form.find('input#user_full_name').val());
+		decline_form.find('input#user_position').val(approve_form.find('input#user_position').val());
+		decline_form.find('input#user_email').val(approve_form.find('input#user_email').val());
+		
+		decline_form.submit();
+	});
+</script>
 <!--<script src="scripts/vendor.js"></script>-->
 <!--<script src="scripts/plugins.js"></script>-->
 <!--<script src="scripts/main.js"></script>-->
