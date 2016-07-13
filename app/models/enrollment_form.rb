@@ -33,7 +33,6 @@ class EnrollmentForm < ActiveRecord::Base
   attr_accessor :request_info, :decline_reason1, :decline_reason2, :decline_reason3
 
   def push
-    args = attributes.except('id', 'created_at', 'updated_at')
     fields = Settings.quickbase.referrences['enrollments']['fields']
 
     if success?
@@ -44,7 +43,7 @@ class EnrollmentForm < ActiveRecord::Base
 
     params = Hash[
       attributes.slice(*keys).collect do |key, value|
-        [fields[key], value.to_s]
+        [fields[key].to_i, value.to_s]
       end
     ]
     
@@ -66,7 +65,7 @@ class EnrollmentForm < ActiveRecord::Base
       self.of_approval_status = 'Declined'
       self.of_decline_offer_reasons = [:decline_reason1, :decline_reason2, :decline_reason3].collect { |r| self.send(r)}.compact.first
     else
-      self.of_approval_status = 'Accepted'
+      self.of_approval_status = 'Approved'
     end
     
     self.of_terms_and_conditions = of_terms_and_conditions.eql?('Accepted') ? 'Accepted' : 'Declined'
