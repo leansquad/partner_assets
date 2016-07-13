@@ -43,7 +43,7 @@ class EnrollmentForm < ActiveRecord::Base
 
     params = Hash[
       attributes.slice(*keys).collect do |key, value|
-        [fields[key].to_i, value.to_s]
+        [fields[key].to_s, value.to_s]
       end
     ]
     
