@@ -11,8 +11,6 @@ html {
     -webkit-text-size-adjust: 100%
 }
 
-
-
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
     display: block
 }
@@ -7227,7 +7225,7 @@ img.incomm-logo {
     height: auto;
 }
 
-.enrollment-page .accept,.enrollment-page .decline {
+.enrollment-page .accept, .enrollment-page .decline {
     cursor: pointer; /*forces the cursor to change to a hand when the button is hovered*/
     padding: 7px 15px; /*add some padding to the inside of the button*/
     background: #35b128; /*the colour of the button*/
@@ -7262,7 +7260,6 @@ img.incomm-logo {
     -moz-box-shadow: 0 0 1px rgba(0, 0, 0, .75);
 }
 
-
 .enrollment-page .decline:hover,
 .enrollment-page .decline:focus {
     color: #fff;
@@ -7284,12 +7281,10 @@ img.incomm-logo {
     font-size: 14px;
 }
 
-
 .enrollment-page table tr td:first-child span {
     font-weight: normal;
     font-size: 12px;
 }
-
 
 .enrollment-page .table-header {
     background-color: #2f5c93;
@@ -7325,4 +7320,28 @@ img.incomm-logo {
     max-width: 80em;
     position: relative;
     padding: 15px 33px 15px 33px
+}
+
+button.print {
+    cursor: pointer;
+    padding: 7px 15px;
+    background: #35b128;
+    border: 1px solid #33842a;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.75);
+    color: #f3f3f3;
+    font-size: 1.1em;
+    margin-top: 10px;
+    outline: none;
+    float: left;
+}
+
+@media print {
+    div.modal-footer {
+        display: none;
+    }
 }
