@@ -1,12 +1,10 @@
 class EnrollmentsController < ApplicationController
   before_filter :set_enrollment, only: [:show, :print]
 
-  # GET /enrollments/1
   def show
     render :new
   end
 
-  # POST /enrollments
   def create
     enrollment_form = EnrollmentForm.
         new(enrollment_form_params.merge(request_info: Geocoder.search(request.remote_ip)))
@@ -14,13 +12,19 @@ class EnrollmentsController < ApplicationController
       enrollment_form.push
       render 'thank_you'
     else
-      @enrollment = Enrollment.new(id: enrollment_form_params[:entollment_id])
+      @enrollment = Enrollment.new(id: enrollment_form_params[:enrollment_id])
       render :new
     end
   end
-  
+
   def print
     @enrollment_form = EnrollmentForm.find_by(enrollment_uid: params[:id])
+
+    unless @enrollment_form
+      render :new
+    else
+      render :print
+    end
   end
 
   private
