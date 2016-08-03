@@ -19,7 +19,7 @@
     <div class="col-xs-12">
       <div class="wrapper-images">
         <div class="image col-sm-12">
-          <%= image_tag('incomm_logo2.jpg', class: 'incomm-logo')%>
+          <%= image_tag('incomm_logo2.jpg', class: 'incomm-logo') %>
         </div>
       </div>
     </div>
@@ -31,106 +31,66 @@
     <div class="col-sm-12 details">
       <table width="100%" border="1" cellspacing="0">
         <tbody>
-            <tr>
-              <td colspan = "2" class="table-header">Partner & Distribution Details</td>
-            </tr>
-            <tr>
-              <td>Partner Name</td>
-              <td><%= @enrollment.partner[:partner_name] %></td>
-            </tr>
-            <tr>
-              <td>Category</td>
-              <td><%= @enrollment.partner[:category_name] %></td>
-            </tr>
-            <tr>
-              <td>Total Participating Locations</td>
-              <td><%= @enrollment.partner[:partner_location_count] %></td>
-            </tr>
-            <tr>
-              <td>Total Clubs Mapped within 20 miles <span>(final club selection and
+        <tr>
+          <td colspan="2" class="table-header">Partner & Distribution Details</td>
+        </tr>
+        <tr>
+          <td>Partner Name</td>
+          <td><%= @enrollment.partner[:partner_name] %></td>
+        </tr>
+        <tr>
+          <td>Category</td>
+          <td><%= @enrollment.partner[:category_name] %></td>
+        </tr>
+        <tr>
+          <td>Total Participating Locations</td>
+          <td><%= @enrollment.partner[:partner_location_count] %></td>
+        </tr>
+        <tr>
+          <td>Total Clubs Mapped within 20 miles <span>(final club selection and
                 number of clubs to be determined by Sam’s Club)</span></td>
-              <td><%= @enrollment.total_clubs_mapped %></td>
-            </tr>
-            <tr>
-              <td colspan="2" class="table-header">Offer Details</td>
-            </tr>
-            <tr>
-              <td>Consumer Offer</td>
-              <td><%= @enrollment.offer[:offer_details] %></td>
-            </tr>
-            <tr>
-              <td>Total Offer Cost to InComm</td>
-              <td><%= number_to_currency(@enrollment.offer[:total_offer_cost]) %></td>
-            </tr>
-            <tr>
-              <td>Total Margin</td>
-              <td><%= number_to_percentage(@enrollment.offer[:total_margin].to_f * 100, precision: 2) %></td>
-            </tr>
-            <tr>
-              <td>Consumer Discount Margin</td>
-              <td><%= number_to_percentage(@enrollment.offer[:customer_discount_margin].to_f * 100, precision: 2) %></td>
-            </tr>
-            <tr>
-              <td>Total Margin to InComm</td>
-              <td><%= number_to_percentage(@enrollment.offer[:total_incomm_margin].to_f * 100, precision: 2) %></td>
-            </tr>
-            <tr>
-              <td>Gift card balance inquiry phone number <span>(Required for Gift Cards)</span></td>
-              <td><%= @enrollment.offer[:balance_inquery_method] %></td>
-            </tr>
-            <tr>
-              <td>Offer Period <span>(Exact dates subject to change)</span></td>
-              <td><%= @enrollment.round[:sales_period_start].presence %> - <%= @enrollment.round[:sales_period_end].presence %></td>
-            </tr>
+          <td><%= @enrollment.total_clubs_mapped %></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="table-header">Offer Details</td>
+        </tr>
+        <tr>
+          <td>Consumer Offer</td>
+          <td><%= @enrollment.offer[:offer_details] %></td>
+        </tr>
+        <tr>
+          <td>Total Offer Cost to InComm</td>
+          <td><%= number_to_currency(@enrollment.offer[:total_offer_cost]) %></td>
+        </tr>
+        <tr>
+          <td>Total Margin</td>
+          <td><%= number_to_percentage(@enrollment.offer[:total_margin].to_f * 100, precision: 2) %></td>
+        </tr>
+        <tr>
+          <td>Consumer Discount Margin</td>
+          <td><%= number_to_percentage(@enrollment.offer[:customer_discount_margin].to_f * 100, precision: 2) %></td>
+        </tr>
+        <tr>
+          <td>Total Margin to InComm</td>
+          <td><%= number_to_percentage(@enrollment.offer[:total_incomm_margin].to_f * 100, precision: 2) %></td>
+        </tr>
+        <tr>
+          <td>Gift card balance inquiry phone number <span>(Required for Gift Cards)</span></td>
+          <td><%= @enrollment.offer[:balance_inquery_method] %></td>
+        </tr>
+        <tr>
+          <td>Offer Period <span>(Exact dates subject to change)</span></td>
+          <td><%= @enrollment.round[:sales_period_start].presence %>
+            - <%= @enrollment.round[:sales_period_end].presence %></td>
+        </tr>
         </tbody>
       </table>
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-12 details"><h3>Program costs</h3>
-      <ul>
-        <li>Partner is responsible for the cost of the Products and shipping costs to InComm.</li>
-        <li>InComm to cover cost of production for pull cards and shipping costs to Sam’s Club.</li>
-        <li>Payment for Products will be due to Partner within 60 days after receipt of Products and valid invoice by
-          InComm.
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12 details"><h3>Program Terms</h3>
-      <ul>
-        <li>Products will be shipped active by Partner to an InComm designated location.</li>
-        <li>Partner is responsible for the value of the Products until receipt by InComm.</li>
-        <li>Partner will buy back all remaining inventory after the offer period expires.</li>
-        <li>This offer will also be available through Samsclub.com.</li>
-        <li>Products will be treated as tender at redemption at Partner’s stores and will have no restrictions on use.
-        </li>
-        <li>Partner will have readily available Product samples.</li>
-        <li>Partner will provide, and authorizes InComm to use, art components needed for pull card creation (high
-          resolution logo, high resolution product image and text for terms and conditions).
-        </li>
-        <li>Partner authorizes InComm to use art components from Partner’s website as required for the program.</li>
-        <li>Partner is responsible for remitting all applicable taxes to tax authorities. Partner will provide InComm
-          with any resale certificates or other legally sufficient exemption certificates for applicable taxes as
-          requested.
-        </li>
-        <li>Acceptance of this Online Offer Form does not guarantee Partner’s right to participate. Final approval of
-          Partner’s participation is subject to InComm and Sam’s Club approval.
-        </li>
-        <li>All terms and conditions relating to the Extreme Value Program remain subject to the terms and conditions of
-          the applicable InComm Purchase Order or execution of a separate, binding agreement, if applicable.
-        </li>
-      </ul>
-      <p>Under the Electronic Signatures in Global and National Commerce Act (“E-Sign”), acceptance of the terms and
-        conditions of this Online Offer Form is legally binding in the same manner as are hard copy documents executed
-        by hand signature. This Online Offer Form shall be governed by the provisions of E-Sign.</p>
 
-      <p>By pressing Accept and Continue, you agree (i) that Partner’s acceptance of the terms and conditions of this
-        Online Offer Form shall be effective by electronic means, (ii) that Partner is to be bound by the terms and
-        conditions of this Online Offer Form, and (iii) that you have the ability to print or otherwise store this
-        Online Offer Form.</p></div>
-  </div>
+  <%= render partial: 'enrollments/program_cost' %>
+  <%= render partial: 'enrollments/program_terms' %>
+
   <div class="row">
     <div class="col-sm-12">
       <%= form_tag '/enrollments', method: :post, class: 'form-horizontal enrollment-form', id: 'enrollment-form' do %>
@@ -209,11 +169,11 @@
           <input type="hidden" name="enrollment_form[enrollment_id]" id="enrollment_id" value="<%= @enrollment.id %>">
           <input type="hidden" name="enrollment_form[enrollment_uid]" id="enrollment_uid" value="<%= @enrollment.uid %>">
           <input type="hidden" name="enrollment_form[success]" id="success" value="false">
-	      <input type="hidden" name="enrollment_form[of_terms_and_conditions]" id="terms" required="required">
-	      <input type="hidden" name="enrollment_form[of_authorized_to_sign]" id="auth" required="required">
+          <input type="hidden" name="enrollment_form[of_terms_and_conditions]" id="terms" required="required">
+          <input type="hidden" name="enrollment_form[of_authorized_to_sign]" id="auth" required="required">
           <input type="hidden" name="enrollment_form[of_partner_rep_name]" id="user_full_name">
           <input type="hidden" name="enrollment_form[of_partner_rep_title]" id="user_position">
-	      <input type="hidden" name="enrollment_form[of_partner_rep_email]" id="user_email">
+          <input type="hidden" name="enrollment_form[of_partner_rep_email]" id="user_email">
           <!--<form class="decline-enrollment-form">-->
           <div class="modal-body">
             <div class="form-group row">
@@ -242,20 +202,20 @@
   </div>
 </div>
 <script>
-	$(document).on('click', 'button#submit-decline-form', function(event){
-		event.preventDefault();
-		
-		var approve_form = $('form.enrollment-form');
-		var decline_form = $('form.decline-enrollment-form');
-		
-		decline_form.find('input#terms').val(approve_form.find('input#terms').val());
-		decline_form.find('input#auth').val(approve_form.find('input#auth').val());
-		decline_form.find('input#user_full_name').val(approve_form.find('input#user_full_name').val());
-		decline_form.find('input#user_position').val(approve_form.find('input#user_position').val());
-		decline_form.find('input#user_email').val(approve_form.find('input#user_email').val());
-		
-		decline_form.submit();
-	});
+    $(document).on('click', 'button#submit-decline-form', function (event) {
+        event.preventDefault();
+
+        var approve_form = $('form.enrollment-form');
+        var decline_form = $('form.decline-enrollment-form');
+
+        decline_form.find('input#terms').val(approve_form.find('input#terms').val());
+        decline_form.find('input#auth').val(approve_form.find('input#auth').val());
+        decline_form.find('input#user_full_name').val(approve_form.find('input#user_full_name').val());
+        decline_form.find('input#user_position').val(approve_form.find('input#user_position').val());
+        decline_form.find('input#user_email').val(approve_form.find('input#user_email').val());
+
+        decline_form.submit();
+    });
 </script>
 <!--<script src="scripts/vendor.js"></script>-->
 <!--<script src="scripts/plugins.js"></script>-->
