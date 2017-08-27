@@ -71,6 +71,10 @@
           <td><%= @enrollment.round[:sales_period_start].presence %>
             - <%= @enrollment.round[:sales_period_end].presence %></td>
         </tr>
+        <tr>
+          <td>Additional Specifications</td>
+          <td><%= @enrollment.additional_specifications %></td>
+        </tr>
         </tbody>
       </table>
     </div>

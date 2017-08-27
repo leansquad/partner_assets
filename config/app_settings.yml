@@ -15,7 +15,7 @@ development:
           uid: 114
           offer_status: 23
           total_clubs_mapped: 112
-          of_terms_and_conditions: 107
+          additional_specifications: 107
           of_authorized_to_sign: 108
           of_partner_rep_name: 101
           of_partner_rep_title: 102
@@ -137,7 +137,7 @@ qa:
           uid: 114
           offer_status: 23
           total_clubs_mapped: 112
-          of_terms_and_conditions: 107
+          additional_specifications: 107
           of_authorized_to_sign: 108
           of_partner_rep_name: 101
           of_partner_rep_title: 102

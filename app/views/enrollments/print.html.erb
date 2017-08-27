@@ -27,6 +27,10 @@
               <td><%= @enrollment.partner[:category_name] %></td>
             </tr>
             <tr>
+              <td>Payment Terms</td>
+              <td><%= @enrollment.partner[:payment_terms] %></td>
+            </tr>
+            <tr>
               <td>Total Participating Locations</td>
               <td><%= @enrollment.partner[:partner_location_count] %></td>
             </tr>
@@ -65,6 +69,10 @@
             <tr>
               <td>Offer Period <span>(Exact dates subject to change)</span></td>
               <td><%= @enrollment.round[:sales_period_start].presence %> - <%= @enrollment.round[:sales_period_end].presence %></td>
+            </tr>
+            <tr>
+              <td>Additional Specifications</td>
+              <td><%= @enrollment.additional_specifications %></td>
             </tr>
             <tr>
               <td colspan="2" class="table-header">Form Details</td>

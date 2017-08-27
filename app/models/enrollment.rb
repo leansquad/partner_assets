@@ -19,9 +19,12 @@ class Enrollment
 
     @round_id = attributes[:round_id]
     @round = execute_query('rounds', prepare_filter(@round_id, 'rounds'))[0] || {}
+
+    @additional_specifications = attributes[:additional_specifications]
   end
 
-  attr_reader :id, :cycle_id, :partner_id, :partner, :offer, :offer_id, :uid, :round_id, :round, :total_clubs_mapped
+  attr_reader :id, :cycle_id, :partner_id, :partner, :offer, :offer_id, :uid,
+              :round_id, :round, :total_clubs_mapped, :additional_specifications
 
 
   private

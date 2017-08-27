@@ -36,9 +36,9 @@ class EnrollmentForm < ActiveRecord::Base
     fields = Settings.quickbase.referrences['enrollments']['fields']
 
     if success?
-      keys = attributes.keys - ['id', 'created_at', 'updated_at', 'of_decline_offer_reasons', 'enrollment_id', 'success', 'enrollment_uid']
+      keys = attributes.keys - ['id', 'created_at', 'updated_at', 'of_decline_offer_reasons', 'enrollment_id', 'success', 'enrollment_uid', 'of_terms_and_conditions']
     else
-      keys = attributes.keys - ['id', 'created_at', 'updated_at', 'enrollment_id', 'success', 'enrollment_uid']
+      keys = attributes.keys - ['id', 'created_at', 'updated_at', 'enrollment_id', 'success', 'enrollment_uid', 'of_terms_and_conditions']
     end
 
     params = Hash[
