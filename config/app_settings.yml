@@ -33,6 +33,7 @@ development:
           partner_name: 6
           type_of_product: 73
           partner_location_count: 80
+          payment_terms: 39
       offers:
         db: bksfqeufh
         fields:
@@ -154,6 +155,7 @@ qa:
           partner_name: 6
           type_of_product: 73
           partner_location_count: 80
+          payment_terms: 39
       offers:
         db: bksfqeufh
         fields:
