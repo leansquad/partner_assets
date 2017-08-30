@@ -73,7 +73,7 @@
         </tr>
         <tr>
           <td>Additional Specifications</td>
-          <td><%= @enrollment.additional_specifications %></td>
+          <td><%= simple_format @enrollment.additional_specifications %></td>
         </tr>
         </tbody>
       </table>
@@ -141,7 +141,7 @@
               </button>
             </div>
             <div class="col-xs-2 col-xs-offset-1 col-md-1 col-md-offset-0">
-              <button type="button" class="decline" data-toggle="modal" data-target="#declinePopup">
+              <button type="button" class="decline">
                 Decline
               </button>
             </div>
@@ -207,6 +207,40 @@
         decline_form.find('input#user_email').val(approve_form.find('input#user_email').val());
 
         decline_form.submit();
+    });
+
+    $(document).on('click', 'button.decline', function (event) {
+        $('.text-danger').remove();
+
+        if ($('form.enrollment-form')[0].checkValidity()) {
+          $('#declinePopup').modal('toggle');
+        } else {
+          var user_full_name = $('#user_full_name')[0];
+          var user_position = $('#user_position')[0];
+          var user_email = $('#user_email')[0];
+          var terms = $('#terms')[0];
+          var auth = $('#auth')[0];
+
+          if (!user_full_name.checkValidity()) {
+            $(user_full_name).after('<span class="text-danger">' + user_full_name.validationMessage + '</span>');
+          }
+
+          if (!user_position.checkValidity()) {
+            $(user_position).after('<span class="text-danger">' + user_position.validationMessage + '</span>');
+          }
+
+          if (!user_email.checkValidity()) {
+            $(user_email).after('<span class="text-danger">' + user_email.validationMessage + '</span>');
+          }
+
+          if (!terms.checkValidity()) {
+            $(terms).after('<span class="text-danger">' + terms.validationMessage + '</span>');
+          }
+
+          if (!auth.checkValidity()) {
+            $(auth).after('<span class="text-danger">' + auth.validationMessage + '</span>');
+          }
+        }
     });
 </script>
 <!--<script src="scripts/vendor.js"></script>-->
