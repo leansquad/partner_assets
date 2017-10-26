@@ -51,7 +51,7 @@ class EnrollmentForm < ActiveRecord::Base
     Rails.logger.debug('----------UPDATE_REQUEST--------------')
     Rails.logger.debug(params)
     Rails.logger.debug('--------------------------------------')
-    
+
     quickbase.api.edit_record(enrollment_id, params)
   end
 
@@ -63,7 +63,7 @@ class EnrollmentForm < ActiveRecord::Base
     
     unless success?
       self.of_approval_status = 'Declined'
-      self.of_decline_offer_reasons = [:decline_reason1, :decline_reason2, :decline_reason3].collect { |r| self.send(r)}.compact.first
+      self.of_decline_offer_reasons = [:decline_reason1, :decline_reason2, :decline_reason3].collect { |r| self.send(r)}.compact.join('; ')
     else
       self.of_approval_status = 'Approved'
     end
