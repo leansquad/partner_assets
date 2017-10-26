@@ -6,8 +6,7 @@ class EnrollmentsController < ApplicationController
   end
 
   def create
-    enrollment_form = EnrollmentForm.
-        new(enrollment_form_params.merge(request_info: Geocoder.search(request.remote_ip)))
+    enrollment_form = EnrollmentForm.new(enrollment_form_params.merge(request_info: Geocoder.search(request.remote_ip)))
     if enrollment_form.save
       enrollment_form.push
       render 'thank_you'

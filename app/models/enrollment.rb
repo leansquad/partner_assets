@@ -26,7 +26,6 @@ class Enrollment
   attr_reader :id, :cycle_id, :partner_id, :partner, :offer, :offer_id, :uid,
               :round_id, :round, :total_clubs_mapped, :additional_specifications
 
-
   private
 
   def prepare_filter(id, reference, column = 'id')

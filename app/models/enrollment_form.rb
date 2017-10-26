@@ -46,7 +46,7 @@ class EnrollmentForm < ActiveRecord::Base
         [fields[key].to_s, value.to_s]
       end
     ]
-    
+
     Rails.logger.debug('--------------------------------------')
     Rails.logger.debug('----------UPDATE_REQUEST--------------')
     Rails.logger.debug(params)

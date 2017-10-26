@@ -38,6 +38,7 @@ development:
         db: bksfqeufh
         fields:
           id: 3
+          cost_to_incomm_per_each: 69
           offer_details: 6
           partner_id: 18
           total_offer_cost: 22
@@ -167,6 +168,7 @@ qa:
           customer_discount_margin: 52
           total_incomm_margin: 51
           balance_inquery_method: 34
+          cost_to_incomm_per_each: 69
       rounds:
         db: bksfqeuhe
         fields:

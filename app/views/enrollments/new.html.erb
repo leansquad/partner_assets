@@ -63,6 +63,10 @@
           <td><%= number_to_percentage(@enrollment.offer[:total_incomm_margin].to_f * 100, precision: 2) %></td>
         </tr>
         <tr>
+          <td>Cost to InComm Per Each</td>
+          <td><%= number_to_currency(@enrollment.offer[:cost_to_incomm_per_each].to_f, precision: 2) %></td>
+        </tr>
+        <tr>
           <td>Gift card balance inquiry phone number <span>(Required for Gift Cards)</span></td>
           <td><%= @enrollment.offer[:balance_inquery_method] %></td>
         </tr>
