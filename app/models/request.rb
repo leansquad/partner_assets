@@ -83,11 +83,11 @@ class Request < ActiveRecord::Base
 
 
   def submit_files_to_quickbase
-    fields = Settings.quickbase.referrences['offer_assets']['fields']
+    fields = Settings.quickbase.referrences['assets']['fields']
 
     quickbase = Quickbase::Connection.new(
         apptoken: Settings.quickbase.apptoken,
-        dbid: Settings.quickbase.referrences['offer_assets']['db']
+        dbid: Settings.quickbase.referrences['assets']['db']
     )
 
     IMAGE_NAMES.each do |image|
@@ -103,11 +103,11 @@ class Request < ActiveRecord::Base
   private
 
   def add_quickbase_record
-    fields = Settings.quickbase.referrences['offer_assets']['fields']
+    fields = Settings.quickbase.referrences['assets']['fields']
 
     quickbase = Quickbase::Connection.new(
         apptoken: Settings.quickbase.apptoken,
-        dbid: Settings.quickbase.referrences['offer_assets']['db']
+        dbid: Settings.quickbase.referrences['assets']['db']
     )
 
     args = {

@@ -2,15 +2,26 @@
 <html>
 <head>
   <title>Marketing Asset Collection Form</title>
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
+  <% case params[:controller] %>
+  <% when 'enrollments' %>
+      <%= stylesheet_link_tag 'enrollments', media: 'all' %>
+      <%= javascript_include_tag 'enrollment' %>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <% else %>
+      <%= stylesheet_link_tag 'application', media: 'all' %>
+      <%= javascript_include_tag 'application' %>
+  <% end %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <main class="wrapper">
-  <div class="logo">
-    <%= image_tag('incomm_logo2.jpg')%>
-  </div>
+  <% case params[:controller] %>
+  <% when 'enrollments' %>
+  <% else %>
+      <div class="logo">
+        <%= image_tag('incomm_logo2.jpg') %>
+      </div>
+  <% end %>
 
   <%= yield %>
 </main>

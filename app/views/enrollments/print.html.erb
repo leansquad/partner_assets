@@ -1,0 +1,132 @@
+<div class="enrollment-page">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="wrapper-images">
+        <div class="image col-sm-12">
+          <%= image_tag('incomm_logo2.jpg', class: 'incomm-logo')%>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12"><h1>Sam’s Extreme Value Program – Online Offer Form</h1></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 details">
+      <table width="100%" border="1" cellspacing="0">
+        <tbody>
+            <tr>
+              <td colspan = "2" class="table-header">Partner & Distribution Details</td>
+            </tr>
+            <tr>
+              <td>Partner Name</td>
+              <td><%= @enrollment.partner[:partner_name] %></td>
+            </tr>
+            <tr>
+              <td>Category</td>
+              <td><%= @enrollment.partner[:category_name] %></td>
+            </tr>
+            <tr>
+              <td>Payment Terms</td>
+              <td><%= @enrollment.partner[:payment_terms] %></td>
+            </tr>
+            <tr>
+              <td>Total Participating Locations</td>
+              <td><%= @enrollment.partner[:partner_location_count] %></td>
+            </tr>
+            <tr>
+              <td>Total Clubs Mapped within 20 miles <span>(final club selection and
+                number of clubs to be determined by Sam’s Club)</span></td>
+              <td><%= @enrollment.total_clubs_mapped %></td>
+            </tr>
+            <tr>
+              <td colspan="2" class="table-header">Offer Details</td>
+            </tr>
+            <tr>
+              <td>Consumer Offer</td>
+              <td><%= @enrollment.offer[:offer_details] %></td>
+            </tr>
+            <tr>
+              <td>Total Offer Cost to InComm</td>
+              <td><%= number_to_currency(@enrollment.offer[:total_offer_cost]) %></td>
+            </tr>
+            <tr>
+              <td>Total Margin</td>
+              <td><%= number_to_percentage(@enrollment.offer[:total_margin].to_f * 100, precision: 2) %></td>
+            </tr>
+            <tr>
+              <td>Consumer Discount Margin</td>
+              <td><%= number_to_percentage(@enrollment.offer[:customer_discount_margin].to_f * 100, precision: 2) %></td>
+            </tr>
+            <tr>
+              <td>Total Margin to InComm</td>
+              <td><%= number_to_percentage(@enrollment.offer[:total_incomm_margin].to_f * 100, precision: 2) %></td>
+            </tr>
+            <tr>
+              <td>Gift card balance inquiry phone number <span>(Required for Gift Cards)</span></td>
+              <td><%= @enrollment.offer[:balance_inquery_method] %></td>
+            </tr>
+            <tr>
+              <td>Offer Period <span>(Exact dates subject to change)</span></td>
+              <td><%= @enrollment.round[:sales_period_start].presence %> - <%= @enrollment.round[:sales_period_end].presence %></td>
+            </tr>
+            <tr>
+              <td>Additional Specifications</td>
+              <td><%= simple_format @enrollment.additional_specifications %></td>
+            </tr>
+            <tr>
+              <td colspan="2" class="table-header">Form Details</td>
+            </tr>
+            <tr>
+              <td>Partner Representative Name</td>
+              <td><%= @enrollment_form.of_partner_rep_name %></td>
+            </tr>
+            <tr>
+              <td>Partner Representative Title</td>
+              <td><%= @enrollment_form.of_partner_rep_title %></td>
+            </tr>
+            <tr>
+              <td>Partner Representative Email</td>
+              <td><%= @enrollment_form.of_partner_rep_email %></td>
+            </tr>
+            <tr>
+              <td>Partner Representative Form Submit Time Stamp</td>
+              <td><%= @enrollment_form.of_submit_timestamp %></td>
+            </tr>
+            <tr>
+              <td>Partner Representative IP Address</td>
+              <td><%= @enrollment_form.of_partner_ip.to_s %></td>
+            </tr>
+            <tr>
+              <td>Partner Representative Location (Per IP Address)</td>
+              <td><%= @enrollment_form.of_partner_location %></td>
+            </tr>
+            <tr>
+              <td>Terms and Conditions Accepted or Declined</td>
+              <td><%= @enrollment_form.of_terms_and_conditions %></td>
+            </tr>
+            <tr>
+              <td>Partner Representative is Authorized to Accept Terms and Conditions</td>
+              <td><%= @enrollment_form.of_authorized_to_sign %></td>
+            </tr>
+            <tr>
+              <td>Offer Form Approval Status</td>
+              <td><%= @enrollment_form.of_approval_status %></td>
+            </tr>
+            <tr>
+              <td>Offer Form Decline Reasons (If Declined)</td>
+              <td><%= @enrollment_form.of_decline_offer_reasons %></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <%= render partial: 'enrollments/program_cost' %>
+  <%= render partial: 'enrollments/program_terms' %>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default print" onclick="window.print();">Print</button>
+  </div>
+
+</div>

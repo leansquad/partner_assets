@@ -50,6 +50,8 @@ gem 'geocoder', github: 'alexreisner/geocoder'
 
 gem 'airbrake', '=4.3.0'
 
+gem 'wannabe_bool'
+
 group :development do
   gem 'capistrano-rails', group: :development
   gem 'annotate'

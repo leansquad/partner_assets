@@ -1,0 +1,260 @@
+<div class="enrollment-page">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="wrapper-images">
+        <div class="image col-sm-12">
+          <%= image_tag('incomm_logo2.jpg', class: 'incomm-logo') %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12"><h1>Sam’s Extreme Value Program – Online Offer Form</h1></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 details">
+      <table width="100%" border="1" cellspacing="0">
+        <tbody>
+        <tr>
+          <td colspan="2" class="table-header">Partner & Distribution Details</td>
+        </tr>
+        <tr>
+          <td>Partner Name</td>
+          <td><%= @enrollment.partner[:partner_name] %></td>
+        </tr>
+        <tr>
+          <td>Category</td>
+          <td><%= @enrollment.partner[:category_name] %></td>
+        </tr>
+        <tr>
+          <td>Payment Terms</td>
+          <td><%= @enrollment.partner[:payment_terms] %></td>
+        </tr>
+        <tr>
+          <td>Total Participating Locations</td>
+          <td><%= @enrollment.partner[:partner_location_count] %></td>
+        </tr>
+        <tr>
+          <td>Total Clubs Mapped within 20 miles <span>(final club selection and
+                number of clubs to be determined by Sam’s Club)</span></td>
+          <td><%= @enrollment.total_clubs_mapped %></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="table-header">Offer Details</td>
+        </tr>
+        <tr>
+          <td>Consumer Offer</td>
+          <td><%= @enrollment.offer[:offer_details] %></td>
+        </tr>
+        <tr>
+          <td>Total Offer Cost to InComm</td>
+          <td><%= number_to_currency(@enrollment.offer[:total_offer_cost]) %></td>
+        </tr>
+        <tr>
+          <td>Total Margin</td>
+          <td><%= number_to_percentage(@enrollment.offer[:total_margin].to_f * 100, precision: 2) %></td>
+        </tr>
+        <tr>
+          <td>Consumer Discount Margin</td>
+          <td><%= number_to_percentage(@enrollment.offer[:customer_discount_margin].to_f * 100, precision: 2) %></td>
+        </tr>
+        <tr>
+          <td>Total Margin to InComm</td>
+          <td><%= number_to_percentage(@enrollment.offer[:total_incomm_margin].to_f * 100, precision: 2) %></td>
+        </tr>
+        <tr>
+          <td>Cost to InComm Per Each</td>
+          <td><%= number_to_currency(@enrollment.offer[:cost_to_incomm_per_each].to_f, precision: 2) %></td>
+        </tr>
+        <tr>
+          <td>Gift card balance inquiry phone number <span>(Required for Gift Cards)</span></td>
+          <td><%= @enrollment.offer[:balance_inquery_method] %></td>
+        </tr>
+        <tr>
+          <td>Offer Period <span>(Exact dates subject to change)</span></td>
+          <td><%= @enrollment.round[:sales_period_start].presence %>
+            - <%= @enrollment.round[:sales_period_end].presence %></td>
+        </tr>
+        <tr>
+          <td>Additional Specifications</td>
+          <td><%= simple_format @enrollment.additional_specifications %></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <%= render partial: 'enrollments/program_cost' %>
+  <%= render partial: 'enrollments/program_terms' %>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <%= form_tag '/enrollments', method: :post, class: 'form-horizontal enrollment-form', id: 'enrollment-form' do %>
+          <input type="hidden" name="enrollment_form[enrollment_id]" id="enrollment_id" value="<%= @enrollment.id %>">
+          <input type="hidden" name="enrollment_form[enrollment_uid]" id="enrollment_uid" value="<%= @enrollment.uid %>">
+          <input type="hidden" name="enrollment_form[success]" id="success" value="true">
+
+          <div class="form-group">
+            <div class="col-xs-1 text-center">
+              <input type="checkbox" name="enrollment_form[of_terms_and_conditions]" id="terms" required="required" value="Accepted">
+            </div>
+            <label for="terms" class="col-xs-10 control-label">
+              I have read and accept the details and terms and conditions of this Online Offer Form.
+            </label>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-1 text-center">
+              <input type="checkbox" name="enrollment_form[of_authorized_to_sign]" id="auth" required="required" value="YES">
+            </div>
+            <label for="auth" class="col-xs-10 control-label">
+              I am an authorized representative of the above referenced Partner to sign this electronic document.
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="user_full_name" class="col-sm-4 col-md-5 control-label">
+              Please type your full name
+            </label>
+
+            <div class="col-sm-8 col-md-7">
+              <input type="text" name="enrollment_form[of_partner_rep_name]" class="form-control" id="user_full_name" required="required">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="user_position" class="col-sm-4 col-md-5 control-label">
+              Please type your title/position at <%= @enrollment.partner[:partner_name] %>
+            </label>
+
+            <div class="col-sm-8 col-md-7">
+              <input type="text" name="enrollment_form[of_partner_rep_title]" class="form-control" id="user_position" required="required">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="user_email" class="col-sm-4 col-md-5 control-label">
+              Please type your email address
+            </label>
+
+            <div class="col-sm-8 col-md-7">
+              <input type="email" name="enrollment_form[of_partner_rep_email]" class="form-control" id="user_email" required="required">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-2">
+              <button type="submit" class="accept" form="enrollment-form">
+                Accept
+              </button>
+            </div>
+            <div class="col-xs-2 col-xs-offset-1 col-md-1 col-md-offset-0">
+              <button type="button" class="decline">
+                Decline
+              </button>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!-- Decline popup -->
+<div id="declinePopup" class="modal fade" role="dialog">
+  <div class="modal-dialog"><!-- Modal content-->
+    <div class="declinePopup-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Please specify the reason for declining the offer</h4></div>
+      <%= form_tag '/enrollments', method: :post, class: 'decline-enrollment-form' do %>
+          <input type="hidden" name="enrollment_form[enrollment_id]" id="enrollment_id" value="<%= @enrollment.id %>">
+          <input type="hidden" name="enrollment_form[enrollment_uid]" id="enrollment_uid" value="<%= @enrollment.uid %>">
+          <input type="hidden" name="enrollment_form[success]" id="success" value="false">
+          <input type="hidden" name="enrollment_form[of_terms_and_conditions]" id="terms" required="required">
+          <input type="hidden" name="enrollment_form[of_authorized_to_sign]" id="auth" required="required">
+          <input type="hidden" name="enrollment_form[of_partner_rep_name]" id="user_full_name">
+          <input type="hidden" name="enrollment_form[of_partner_rep_title]" id="user_position">
+          <input type="hidden" name="enrollment_form[of_partner_rep_email]" id="user_email">
+          <!--<form class="decline-enrollment-form">-->
+          <div class="modal-body">
+            <div class="form-group row">
+              <div class="col-xs-1 text-center">
+                <input type="checkbox" name="enrollment_form[decline_reason1]"
+                       id="reason1" value="I want to participate in another season">
+              </div>
+              <label for="reason1" class="col-xs-10 control-label">I want to participate in another season</label></div>
+            <div class="form-group row">
+              <div class="col-xs-1 text-center">
+                <input type="checkbox" id="reason2" name="enrollment_form[decline_reason2]" value="Participation is too costly">
+              </div>
+              <label for="reason2" class="col-xs-10 control-label">Participation is too costly</label></div>
+            <div class="form-group row">
+              <div class="col-xs-1 text-center">
+                <input type="checkbox" id="other_reason_checkbox" name="enrollment_form[decline_reason3]" value="">
+                <input type="textarea" id="other_reason" name="enrollment_form[decline_reason3]" value="" hidden="true">
+              </div>
+              <label id="other_reason_checkbox_label" for="other_reason_checkbox" class="col-xs-10 control-label">Other</label></div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" id='submit-decline-form'>Ok</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<script>
+    $(document).on('click', '#other_reason_checkbox', function(event) {
+      event.preventDefault();
+      $('#other_reason_checkbox').hide();
+      $('#other_reason_checkbox_label').hide()
+      $('#other_reason').show();
+    });
+    $(document).on('click', 'button#submit-decline-form', function (event) {
+        event.preventDefault();
+
+        var approve_form = $('form.enrollment-form');
+        var decline_form = $('form.decline-enrollment-form');
+
+        decline_form.find('input#terms').val(approve_form.find('input#terms').val());
+        decline_form.find('input#auth').val(approve_form.find('input#auth').val());
+        decline_form.find('input#user_full_name').val(approve_form.find('input#user_full_name').val());
+        decline_form.find('input#user_position').val(approve_form.find('input#user_position').val());
+        decline_form.find('input#user_email').val(approve_form.find('input#user_email').val());
+
+        decline_form.submit();
+    });
+
+    $(document).on('click', 'button.decline', function (event) {
+        $('.text-danger').remove();
+
+        if ($('form.enrollment-form')[0].checkValidity()) {
+          $('#declinePopup').modal('toggle');
+        } else {
+          var user_full_name = $('#user_full_name')[0];
+          var user_position = $('#user_position')[0];
+          var user_email = $('#user_email')[0];
+          var terms = $('#terms')[0];
+          var auth = $('#auth')[0];
+
+          if (!user_full_name.checkValidity()) {
+            $(user_full_name).after('<span class="text-danger">' + user_full_name.validationMessage + '</span>');
+          }
+
+          if (!user_position.checkValidity()) {
+            $(user_position).after('<span class="text-danger">' + user_position.validationMessage + '</span>');
+          }
+
+          if (!user_email.checkValidity()) {
+            $(user_email).after('<span class="text-danger">' + user_email.validationMessage + '</span>');
+          }
+
+          if (!terms.checkValidity()) {
+            $(terms).after('<span class="text-danger">' + terms.validationMessage + '</span>');
+          }
+
+          if (!auth.checkValidity()) {
+            $(auth).after('<span class="text-danger">' + auth.validationMessage + '</span>');
+          }
+        }
+    });
+</script>
+<!--<script src="scripts/vendor.js"></script>-->
+<!--<script src="scripts/plugins.js"></script>-->
+<!--<script src="scripts/main.js"></script>-->
+<!--</body>-->
+<!--</html>-->
