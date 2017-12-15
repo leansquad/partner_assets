@@ -31,15 +31,6 @@
           <td><%= @enrollment.partner[:payment_terms] %></td>
         </tr>
         <tr>
-          <td>Total Participating Locations</td>
-          <td><%= @enrollment.partner[:partner_location_count] %></td>
-        </tr>
-        <tr>
-          <td>Total Clubs Mapped within 20 miles <span>(final club selection and
-                number of clubs to be determined by Sam’s Club)</span></td>
-          <td><%= @enrollment.total_clubs_mapped %></td>
-        </tr>
-        <tr>
           <td colspan="2" class="table-header">Offer Details</td>
         </tr>
         <tr>
@@ -53,14 +44,6 @@
         <tr>
           <td>Total Margin</td>
           <td><%= number_to_percentage(@enrollment.offer[:total_margin].to_f * 100, precision: 2) %></td>
-        </tr>
-        <tr>
-          <td>Consumer Discount Margin</td>
-          <td><%= number_to_percentage(@enrollment.offer[:customer_discount_margin].to_f * 100, precision: 2) %></td>
-        </tr>
-        <tr>
-          <td>Total Margin to InComm</td>
-          <td><%= number_to_percentage(@enrollment.offer[:total_incomm_margin].to_f * 100, precision: 2) %></td>
         </tr>
         <tr>
           <td>Cost to InComm Per Each</td>
@@ -179,9 +162,9 @@
               <label for="reason1" class="col-xs-10 control-label">I want to participate in another season</label></div>
             <div class="form-group row">
               <div class="col-xs-1 text-center">
-                <input type="checkbox" id="reason2" name="enrollment_form[decline_reason2]" value="Participation is too costly">
+                <input type="checkbox" id="reason2" name="enrollment_form[decline_reason2]" value="We are evaluating the EV program">
               </div>
-              <label for="reason2" class="col-xs-10 control-label">Participation is too costly</label></div>
+              <label for="reason2" class="col-xs-10 control-label">We are evaluating the EV program</label></div>
             <div class="form-group row">
               <div class="col-xs-1 text-center">
                 <input type="checkbox" id="other_reason_checkbox" name="enrollment_form[decline_reason3]" value="">

@@ -31,15 +31,6 @@
               <td><%= @enrollment.partner[:payment_terms] %></td>
             </tr>
             <tr>
-              <td>Total Participating Locations</td>
-              <td><%= @enrollment.partner[:partner_location_count] %></td>
-            </tr>
-            <tr>
-              <td>Total Clubs Mapped within 20 miles <span>(final club selection and
-                number of clubs to be determined by Sam’s Club)</span></td>
-              <td><%= @enrollment.total_clubs_mapped %></td>
-            </tr>
-            <tr>
               <td colspan="2" class="table-header">Offer Details</td>
             </tr>
             <tr>
@@ -53,14 +44,6 @@
             <tr>
               <td>Total Margin</td>
               <td><%= number_to_percentage(@enrollment.offer[:total_margin].to_f * 100, precision: 2) %></td>
-            </tr>
-            <tr>
-              <td>Consumer Discount Margin</td>
-              <td><%= number_to_percentage(@enrollment.offer[:customer_discount_margin].to_f * 100, precision: 2) %></td>
-            </tr>
-            <tr>
-              <td>Total Margin to InComm</td>
-              <td><%= number_to_percentage(@enrollment.offer[:total_incomm_margin].to_f * 100, precision: 2) %></td>
             </tr>
             <tr>
               <td>Gift card balance inquiry phone number <span>(Required for Gift Cards)</span></td>
