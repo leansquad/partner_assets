@@ -100,6 +100,53 @@ production:
           gift_card_image: 16
           gift_card_image2: 77
           offer_id: 8
+      enrollments:
+        db: bjjknsqq3
+        fields:
+          id: 3
+          round_id: 13
+          offer_id: 8
+          partner_id: 27
+          uid: 120
+          offer_status: 23
+          total_clubs_mapped: 112
+          additional_specifications: 107
+          of_authorized_to_sign: 108
+          of_partner_rep_name: 101
+          of_partner_rep_title: 102
+          of_partner_rep_email: 103
+          of_decline_offer_reasons: 110
+          of_approval_status: 109
+          of_submit_timestamp: 104
+          of_partner_ip: 105
+          of_partner_location: 106
+      offers:
+        db: bjitjdsxt
+        fields:
+          id: 3
+          cost_to_incomm_per_each: 69
+          offer_details: 6
+          partner_id: 18
+          total_offer_cost: 22
+          total_margin: 50
+          customer_discount_margin: 52
+          total_incomm_margin: 51
+          balance_inquery_method: 34
+      partners:
+        db: bjites2hc
+        fields:
+          id: 3
+          category_name: 75
+          partner_name: 6
+          type_of_product: 73
+          partner_location_count: 80
+          payment_terms: 39
+      rounds:
+        db: bjjhx9fmg
+        fields:
+          id: 3
+          sales_period_start: 18
+          sales_period_end: 19
 
 qa:
   quickbase:
