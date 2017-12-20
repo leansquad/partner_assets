@@ -1,4 +1,5 @@
 class EnrollmentsController < ApplicationController
+  before_filter :check_enrollment_form, only: :show
   before_filter :set_enrollment, only: [:show, :print]
 
   def show
@@ -39,5 +40,13 @@ class EnrollmentsController < ApplicationController
 
   def set_enrollment
     @enrollment = Enrollment.new(params)
+  end
+
+  def check_enrollment_form
+    enrollment_form = EnrollmentForm.find_by(enrollment_uid: params[:id])
+
+    if enrollment_form && enrollment_form.of_approval_status.present?
+      render 'already_submitted'
+    end
   end
 end
