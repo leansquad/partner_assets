@@ -21,6 +21,7 @@ development:
           of_partner_rep_title: 102
           of_partner_rep_email: 103
           of_decline_offer_reasons: 110
+          of_declined_offer_reason_other: 123
           of_approval_status: 109
           of_submit_timestamp: 104
           of_partner_ip: 105

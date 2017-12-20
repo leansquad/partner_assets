@@ -1,24 +1,24 @@
 # == Schema Information
-# Schema version: 20160528071752
 #
 # Table name: enrollment_forms
 #
-#  id                       :integer          not null, primary key
-#  enrollment_id            :integer
-#  enrollment_uid           :string
-#  success                  :boolean
-#  of_approval_status       :string
-#  of_submit_timestamp      :string
-#  of_partner_rep_name      :string
-#  of_partner_rep_title     :string
-#  of_partner_rep_email     :string
-#  of_terms_and_conditions  :string
-#  of_authorized_to_sign    :string
-#  of_decline_offer_reasons :string
-#  of_partner_ip            :inet
-#  of_partner_location      :text
-#  created_at               :datetime         not null
-#  updated_at               :datetime         not null
+#  id                             :integer          not null, primary key
+#  enrollment_id                  :integer
+#  enrollment_uid                 :string
+#  success                        :boolean
+#  of_approval_status             :string
+#  of_submit_timestamp            :string
+#  of_partner_rep_name            :string
+#  of_partner_rep_title           :string
+#  of_partner_rep_email           :string
+#  of_terms_and_conditions        :string
+#  of_authorized_to_sign          :string
+#  of_decline_offer_reasons       :string
+#  of_partner_ip                  :inet
+#  of_partner_location            :text
+#  created_at                     :datetime         not null
+#  updated_at                     :datetime         not null
+#  of_declined_offer_reason_other :text
 #
 
 class EnrollmentForm < ActiveRecord::Base
@@ -63,7 +63,8 @@ class EnrollmentForm < ActiveRecord::Base
     
     unless success?
       self.of_approval_status = 'Declined'
-      self.of_decline_offer_reasons = [:decline_reason1, :decline_reason2, :decline_reason3].collect { |r| self.send(r)}.compact.join('; ')
+      self.of_decline_offer_reasons = [:decline_reason1, :decline_reason2].collect { |r| self.send(r)}.reject { |r| r.to_s.blank? }.join(';')
+      self.of_declined_offer_reason_other = self.decline_reason3
     else
       self.of_approval_status = 'Approved'
     end
