@@ -47,6 +47,7 @@ development:
           customer_discount_margin: 52
           total_incomm_margin: 51
           balance_inquery_method: 34
+          payment_terms: 23
       rounds:
         db: bksfqeuhe
         fields:
@@ -134,6 +135,7 @@ production:
           customer_discount_margin: 52
           total_incomm_margin: 51
           balance_inquery_method: 34
+          payment_terms: 23
       partners:
         db: bjites2hc
         fields:
@@ -219,6 +221,7 @@ qa:
           total_incomm_margin: 51
           balance_inquery_method: 34
           cost_to_incomm_per_each: 69
+          payment_terms: 23
       rounds:
         db: bksfqeuhe
         fields:
