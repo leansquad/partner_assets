@@ -1,9 +1,15 @@
 <div class="row">
   <div class="col-sm-12 details"><h3>Program costs</h3>
     <ul>
-      <li>Partner is responsible for costs associated with card/ticket/voucher (Products) production and shipping to an InComm designated warehouse location.</li>
-      <li>InComm is responsible for costs of pull cards/tear pads to merchandise Products at Retailer and shipping to retailer warehouse locations.  Partner will be responsible for costs related to any partner-initiated changes requiring reprint of such pull cards/tear pads.</li>
-      <li>InComm will remit payment after receipt of Products at InComm’s warehouse and valid invoice under the payment terms specified in this form. InComm may withhold payment and/or reject any Products that do not conform to the terms set forth in this offer form including, without limitation, defective Products, delays in shipment, erroneous quantity of Products, etc.</li>
+      <% if @enrollment_form.created_at >= Date.parse('2020-02-28') %>
+        <li>Partner is responsible for costs associated with card/ticket/voucher (Products) production and shipping to an InComm designated warehouse location.</li>
+        <li>InComm is responsible for costs of pull cards/tear pads to merchandise Products at Retailer and shipping to retailer warehouse locations.  Partner will be responsible for costs related to any partner-initiated changes requiring reprint of such pull cards/tear pads.</li>
+        <li>InComm will remit payment after receipt of Products at InComm’s warehouse and valid invoice under the payment terms specified in this form. InComm may withhold payment and/or reject any Products that do not conform to the terms set forth in this offer form including, without limitation, defective Products, delays in shipment, erroneous quantity of Products, etc.</li>
+      <% else %>
+        <li>Partner is responsible for the cost of the Products and shipping costs to InComm.</li>
+        <li>InComm to cover cost of production for pull cards and shipping costs to Sam’s Club.</li>
+        <li>Payment for Products will be due after receipt of products in our warehouse and valid invoice and at the payment terms specified in this form.
+      <% end %>
     </ul>
   </div>
 </div>

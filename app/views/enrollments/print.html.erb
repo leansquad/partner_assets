@@ -33,7 +33,7 @@
             <tr>
               <td colspan="2" class="table-header">Offer Details</td>
             </tr>
-            <% if @enrollment_form.created_at > Date.parse('2020-01-24') %>
+            <% if @enrollment_form.created_at >= Date.parse('2020-02-28') %>
               <tr>
                 <td>Retailer Destination</td>
                 <td><%= @enrollment.round[:club_channel] %></td>
@@ -59,7 +59,7 @@
               <td>Offer Period <span>(Exact dates subject to change)</span></td>
               <td><%= @enrollment.round[:sales_period_start].presence %> - <%= @enrollment.round[:sales_period_end].presence %></td>
             </tr>
-            <% if @enrollment_form.created_at > Date.parse('2020-01-24') %>
+            <% if @enrollment_form.created_at >= Date.parse('2020-02-28') %>
               <tr>
                 <td>Enrollment Type</td>
                 <td><%= @enrollment.of_enrollment_type %></td>
