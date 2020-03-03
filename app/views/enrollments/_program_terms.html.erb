@@ -18,7 +18,7 @@
 <div class="row">
   <div class="col-sm-12 details"><h3>Program Terms</h3>
     <ul>
-      <% if @enrollment_form.created_at >= Date.parse('2020-02-28') %>
+      <% if @enrollment_form.nil? || @enrollment_form.created_at >= Date.parse('2020-02-28') %>
         <li>Partner will notify InComm at least 90 days prior to terminating its participation in the EV Program.</li>
         <li>Partner will ensure all Products will be shipped pre-activated to an InComm warehouse unless otherwise agreed to in writing by InComm.</li>
         <li>This offer will be available for sale at all of retailer’s brick and mortar retail locations and the retailer’s website.</li>
